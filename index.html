@@ -186,6 +186,8 @@
         }
         .btn-secondary:hover { border-color: var(--accent); }
 
+        .btn-lg { font-size: 1.1rem; padding: 1rem 2.5rem; }
+
         /* ── Sections ── */
         section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
 
@@ -404,6 +406,8 @@
             fill: var(--text-secondary);
         }
 
+        .hero-compat { margin-top: 3rem; }
+
         /* ── Modal ── */
         .modal-overlay {
             display: none;
@@ -595,12 +599,15 @@
         <a href="#use-cases">Use Cases</a>
         <a href="#get-started" class="nav-cta">Get Started</a>
     </div>
-    <button class="mobile-menu" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle navigation menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+    <button type="button" class="mobile-menu" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle navigation menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
         </svg>
     </button>
 </nav>
+
+<!-- Main Content -->
+<main>
 
 <!-- Hero -->
 <section class="hero">
@@ -611,19 +618,19 @@
         offline messaging, and emergency SOS — even where there's zero cell service.
     </p>
     <div class="hero-actions">
-        <button class="btn-primary" onclick="openModal()" aria-label="Get notified when Smoke Signal launches">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <button type="button" class="btn-primary" onclick="openModal()" aria-label="Get notified when Smoke Signal launches">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             Get Notified at Launch
         </button>
         <a href="#features" class="btn-secondary">See How It Works</a>
     </div>
-    <div class="compat" style="margin-top: 3rem;">
+    <div class="compat hero-compat">
         <div class="compat-item">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             iPhone &amp; iPad
         </div>
         <div class="compat-item">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
             Works with SenseCAP T1000-E
         </div>
     </div>
@@ -659,32 +666,32 @@
 
     <div class="features-grid">
         <div class="feature-card fade-in">
-            <div class="feature-icon">📍</div>
+            <div class="feature-icon" aria-hidden="true">📍</div>
             <h3>Live Group Map</h3>
             <p>See every member of your group on a real-time map with GPS breadcrumb trails. Know exactly where everyone is, even deep in the backcountry.</p>
         </div>
         <div class="feature-card fade-in">
-            <div class="feature-icon">💬</div>
+            <div class="feature-icon" aria-hidden="true">💬</div>
             <h3>Offline Messaging</h3>
             <p>Send and receive text messages between devices without any internet connection. Messages are location-tagged so your group always has context.</p>
         </div>
         <div class="feature-card fade-in">
-            <div class="feature-icon">🚨</div>
+            <div class="feature-icon" aria-hidden="true">🚨</div>
             <h3>Emergency SOS</h3>
             <p>Triple-press the tracker button to instantly broadcast an emergency alert with your exact GPS coordinates to every connected group member.</p>
         </div>
         <div class="feature-card fade-in">
-            <div class="feature-icon">🗺️</div>
+            <div class="feature-icon" aria-hidden="true">🗺️</div>
             <h3>Route Planning &amp; Recording</h3>
             <p>Plan your route with waypoints before you leave. Auto-record your actual path as you go. Export to GPX or KML to share with others.</p>
         </div>
         <div class="feature-card fade-in">
-            <div class="feature-icon">🌦️</div>
+            <div class="feature-icon" aria-hidden="true">🌦️</div>
             <h3>Weather Overlay</h3>
             <p>Live weather conditions layered right on your map. Make smarter decisions about when to push forward and when to find shelter.</p>
         </div>
         <div class="feature-card fade-in">
-            <div class="feature-icon">🔋</div>
+            <div class="feature-icon" aria-hidden="true">🔋</div>
             <h3>Tracker Battery Monitoring</h3>
             <p>Always know your tracker's battery level right from the app. No surprises when you're 20 miles from the trailhead.</p>
         </div>
@@ -729,32 +736,32 @@
 
     <div class="use-cases">
         <div class="use-case fade-in">
-            <div class="use-case-icon">🥾</div>
+            <div class="use-case-icon" aria-hidden="true">🥾</div>
             <h3>Hiking &amp; Backpacking</h3>
             <p>Split up on the trail without losing track. Regroup faster. Know who's ahead and who's behind without shouting into the wind.</p>
         </div>
         <div class="use-case fade-in">
-            <div class="use-case-icon">🏔️</div>
+            <div class="use-case-icon" aria-hidden="true">🏔️</div>
             <h3>Backcountry Skiing</h3>
             <p>Track your group across runs and bowls. Record lines for later. SOS if something goes wrong on a steep face.</p>
         </div>
         <div class="use-case fade-in">
-            <div class="use-case-icon">🏕️</div>
+            <div class="use-case-icon" aria-hidden="true">🏕️</div>
             <h3>Camping &amp; Hunting</h3>
             <p>Keep tabs on your campsite, mark points of interest, and message the group without relying on spotty radio coverage.</p>
         </div>
         <div class="use-case fade-in">
-            <div class="use-case-icon">🛶</div>
+            <div class="use-case-icon" aria-hidden="true">🛶</div>
             <h3>Paddling &amp; Water Sports</h3>
             <p>Stay connected across open water where cell service is nonexistent. Track drift, share locations, coordinate meetups at the takeout.</p>
         </div>
         <div class="use-case fade-in">
-            <div class="use-case-icon">🔍</div>
+            <div class="use-case-icon" aria-hidden="true">🔍</div>
             <h3>Search &amp; Rescue</h3>
             <p>Coordinate field teams with real-time positions and messaging. SOS alerts with GPS ensure rapid response when seconds matter.</p>
         </div>
         <div class="use-case fade-in">
-            <div class="use-case-icon">🏗️</div>
+            <div class="use-case-icon" aria-hidden="true">🏗️</div>
             <h3>Remote Work Sites</h3>
             <p>Track crew positions across large job sites with no infrastructure. Offline comms keep operations running without cell towers.</p>
         </div>
@@ -769,21 +776,23 @@
     <h2 class="fade-in">Never Lose Your Group<br>in the Backcountry Again</h2>
     <p class="fade-in">Smoke Signal is coming to the App Store soon. Grab a SenseCAP T1000-E tracker and be ready on day one.</p>
     <div class="hero-actions fade-in">
-        <button class="btn-primary" onclick="openModal()" style="font-size: 1.1rem; padding: 1rem 2.5rem;" aria-label="Get notified when Smoke Signal launches">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <button type="button" class="btn-primary btn-lg" onclick="openModal()" aria-label="Get notified when Smoke Signal launches">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             Notify Me at Launch
         </button>
-        <a href="https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html" class="btn-secondary" style="font-size: 1.1rem; padding: 1rem 2.5rem;" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html" class="btn-secondary btn-lg" target="_blank" rel="noopener noreferrer">
             Get the Tracker
         </a>
     </div>
 </section>
 
+</main>
+
 <!-- Coming Soon Modal (SMO-70: Option C) -->
 <div class="modal-overlay" id="comingSoonModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
-        <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
-        <div class="modal-icon">🔥</div>
+        <button type="button" class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+        <div class="modal-icon" aria-hidden="true">🔥</div>
         <h3 id="modalTitle">Coming Soon to the App Store</h3>
         <p>Smoke Signal is in active development. Drop your email and we'll let you know the moment it's available to download.</p>
         <form class="modal-form" id="notifyForm" onsubmit="handleNotifySubmit(event)">
