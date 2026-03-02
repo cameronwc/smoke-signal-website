@@ -6,6 +6,11 @@
     <title>Smoke Signal — Stay Connected Off-Grid</title>
     <meta name="description" content="Smoke Signal keeps your group connected in the backcountry. Live GPS tracking, offline messaging, and emergency SOS — no cell service needed.">
     <meta name="theme-color" content="#0a0a0f">
+    <meta property="og:title" content="Smoke Signal — Stay Connected Off-Grid">
+    <meta property="og:description" content="Live GPS tracking, offline messaging, and emergency SOS for outdoor groups. No cell service needed.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cameronwc.github.io/smoke-signal-website/">
+    <link rel="canonical" href="https://cameronwc.github.io/smoke-signal-website/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
     <style>
         :root {
@@ -16,7 +21,6 @@
             --accent-dim: #c2410c;
             --accent-glow: rgba(249, 115, 22, 0.15);
             --green: #22c55e;
-            --red: #ef4444;
             --text-primary: #e8e8ed;
             --text-secondary: #9ca3af;
             --text-muted: #6b7280;
@@ -157,6 +161,8 @@
             font-weight: 700;
             border-radius: 12px;
             text-decoration: none;
+            border: none;
+            cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .btn-primary:hover {
@@ -309,10 +315,7 @@
         }
         .use-case:hover { border-color: var(--accent); }
 
-        .use-case-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+        .use-case-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 
         .use-case h3 {
             font-size: 1.05rem;
@@ -401,6 +404,121 @@
             fill: var(--text-secondary);
         }
 
+        /* ── Modal ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            animation: modal-in 0.3s ease;
+        }
+
+        @keyframes modal-in {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.5rem;
+            line-height: 1;
+            padding: 0.25rem;
+            transition: color 0.2s;
+        }
+        .modal-close:hover { color: var(--text-primary); }
+
+        .modal-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .modal p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .modal-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .modal-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .modal-form input:focus { border-color: var(--accent); }
+        .modal-form input::placeholder { color: var(--text-muted); }
+
+        .modal-form button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .modal-form button:hover { background: var(--accent-dim); }
+
+        .modal-success {
+            display: none;
+            color: var(--green);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .modal-tracker-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .modal-tracker-link:hover { color: var(--accent); }
+
         /* ── Footer ── */
         footer {
             border-top: 1px solid var(--border);
@@ -445,6 +563,8 @@
             .steps { grid-template-columns: 1fr; }
             .use-cases { grid-template-columns: 1fr; }
             .stats { grid-template-columns: repeat(2, 1fr); }
+            .modal { padding: 2rem 1.5rem; }
+            .modal-form { flex-direction: column; }
         }
 
         html { scroll-behavior: smooth; }
@@ -456,7 +576,6 @@
         }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* ── Divider ── */
         .divider {
             height: 1px;
             background: var(--border);
@@ -476,7 +595,7 @@
         <a href="#use-cases">Use Cases</a>
         <a href="#get-started" class="nav-cta">Get Started</a>
     </div>
-    <button class="mobile-menu" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+    <button class="mobile-menu" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle navigation menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
             <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
         </svg>
@@ -485,17 +604,17 @@
 
 <!-- Hero -->
 <section class="hero">
-    <div class="badge"><span class="badge-dot"></span> Now available for iOS</div>
+    <div class="badge"><span class="badge-dot"></span> Coming soon to iOS</div>
     <h1>Your Group.<br><span>Always Connected.</span></h1>
     <p class="hero-sub">
         Smoke Signal pairs with a compact GPS tracker to give your group live location sharing,
         offline messaging, and emergency SOS — even where there's zero cell service.
     </p>
     <div class="hero-actions">
-        <a href="#get-started" class="btn-primary">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-            Get Smoke Signal
-        </a>
+        <button class="btn-primary" onclick="openModal()" aria-label="Get notified when Smoke Signal launches">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            Get Notified at Launch
+        </button>
         <a href="#features" class="btn-secondary">See How It Works</a>
     </div>
     <div class="compat" style="margin-top: 3rem;">
@@ -648,17 +767,35 @@
 <section class="cta-section" id="get-started">
     <p class="section-label fade-in">Get Started</p>
     <h2 class="fade-in">Never Lose Your Group<br>in the Backcountry Again</h2>
-    <p class="fade-in">Download Smoke Signal, pair a SenseCAP T1000-E tracker, and head out with confidence.</p>
+    <p class="fade-in">Smoke Signal is coming to the App Store soon. Grab a SenseCAP T1000-E tracker and be ready on day one.</p>
     <div class="hero-actions fade-in">
-        <a href="#" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Download on the App Store
-        </a>
-        <a href="https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html" class="btn-secondary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+        <button class="btn-primary" onclick="openModal()" style="font-size: 1.1rem; padding: 1rem 2.5rem;" aria-label="Get notified when Smoke Signal launches">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            Notify Me at Launch
+        </button>
+        <a href="https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html" class="btn-secondary" style="font-size: 1.1rem; padding: 1rem 2.5rem;" target="_blank" rel="noopener noreferrer">
             Get the Tracker
         </a>
     </div>
 </section>
+
+<!-- Coming Soon Modal (SMO-70: Option C) -->
+<div class="modal-overlay" id="comingSoonModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+        <div class="modal-icon">🔥</div>
+        <h3 id="modalTitle">Coming Soon to the App Store</h3>
+        <p>Smoke Signal is in active development. Drop your email and we'll let you know the moment it's available to download.</p>
+        <form class="modal-form" id="notifyForm" onsubmit="handleNotifySubmit(event)">
+            <input type="email" id="notifyEmail" placeholder="you@example.com" required aria-label="Email address">
+            <button type="submit">Notify Me</button>
+        </form>
+        <p class="modal-success" id="notifySuccess">You're on the list! We'll be in touch.</p>
+        <a href="https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html" class="modal-tracker-link" target="_blank" rel="noopener noreferrer">
+            In the meantime, grab the SenseCAP T1000-E tracker &rarr;
+        </a>
+    </div>
+</div>
 
 <!-- Footer -->
 <footer>
@@ -666,12 +803,13 @@
         <a href="#features">Features</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#use-cases">Use Cases</a>
-        <a href="https://github.com/cameronwc/smoke-signal">Open Source</a>
+        <a href="https://github.com/cameronwc/smoke-signal" target="_blank" rel="noopener noreferrer">Open Source</a>
     </div>
     <p>Smoke Signal &copy; 2026 &middot; Built for the backcountry.</p>
 </footer>
 
 <script>
+/* Intersection Observer for fade-in animations */
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -679,6 +817,40 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* Coming Soon Modal (SMO-70) */
+function openModal() {
+    document.getElementById('comingSoonModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('notifyEmail').focus();
+}
+
+function closeModal() {
+    document.getElementById('comingSoonModal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+/* Close modal on overlay click */
+document.getElementById('comingSoonModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
+
+/* Close modal on Escape key */
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+});
+
+/* Handle email signup — stores locally for now, swap with real endpoint later */
+function handleNotifySubmit(e) {
+    e.preventDefault();
+    const email = document.getElementById('notifyEmail').value;
+
+    /* TODO: Replace with actual email collection endpoint (e.g., Mailchimp, ConvertKit, or custom API) */
+    console.log('Launch notification signup:', email);
+
+    document.getElementById('notifyForm').style.display = 'none';
+    document.getElementById('notifySuccess').style.display = 'block';
+}
 </script>
 </body>
 </html>
