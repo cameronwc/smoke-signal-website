@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoke Signal — Stay Connected Off-Grid</title>
+    <meta name="description" content="Smoke Signal keeps your group connected in the backcountry. Live GPS tracking, offline messaging, and emergency SOS — no cell service needed.">
+    <meta name="theme-color" content="#0a0a0f">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a28;
+            --accent: #f97316;
+            --accent-dim: #c2410c;
+            --accent-glow: rgba(249, 115, 22, 0.15);
+            --green: #22c55e;
+            --red: #ef4444;
+            --text-primary: #e8e8ed;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --border: #2a2a3a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: var(--bg-primary) !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover { background: var(--accent-dim) !important; }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .badge-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+        h1 span { color: var(--accent); }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: var(--accent);
+            color: var(--bg-primary);
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--accent); }
+
+        /* ── Sections ── */
+        section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* ── Features Grid ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            background: var(--accent-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ── How It Works ── */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            counter-reset: step;
+        }
+
+        .step {
+            position: relative;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            counter-increment: step;
+            transition: border-color 0.3s;
+        }
+        .step:hover { border-color: var(--accent); }
+
+        .step::before {
+            content: counter(step);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--bg-primary);
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ── Use Cases ── */
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .use-case {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: border-color 0.3s;
+        }
+        .use-case:hover { border-color: var(--accent); }
+
+        .use-case-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .use-case h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .use-case p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ── Stats Bar ── */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -0.03em;
+        }
+
+        .stat p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            text-align: center;
+            padding: 8rem 2rem;
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 { margin-bottom: 1.5rem; }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* ── Compatibility ── */
+        .compat {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .compat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .compat-item svg {
+            width: 24px; height: 24px;
+            fill: var(--text-secondary);
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ── Mobile ── */
+        .mobile-menu { display: none; background: none; border: none; cursor: pointer; }
+        .mobile-menu svg { stroke: var(--text-secondary); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: block; }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0; right: 0;
+                background: var(--bg-secondary);
+                border-bottom: 1px solid var(--border);
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+            }
+
+            .hero { padding: 7rem 1.5rem 3rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: 1fr; }
+            .use-cases { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        html { scroll-behavior: smooth; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── Divider ── */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+    <a href="#" class="logo">Smoke Signal</a>
+    <div class="nav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#use-cases">Use Cases</a>
+        <a href="#get-started" class="nav-cta">Get Started</a>
+    </div>
+    <button class="mobile-menu" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+    </button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="badge"><span class="badge-dot"></span> Now available for iOS</div>
+    <h1>Your Group.<br><span>Always Connected.</span></h1>
+    <p class="hero-sub">
+        Smoke Signal pairs with a compact GPS tracker to give your group live location sharing,
+        offline messaging, and emergency SOS — even where there's zero cell service.
+    </p>
+    <div class="hero-actions">
+        <a href="#get-started" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            Get Smoke Signal
+        </a>
+        <a href="#features" class="btn-secondary">See How It Works</a>
+    </div>
+    <div class="compat" style="margin-top: 3rem;">
+        <div class="compat-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            iPhone &amp; iPad
+        </div>
+        <div class="compat-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            Works with SenseCAP T1000-E
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<div class="stats fade-in">
+    <div class="stat">
+        <h3>0 Bars?</h3>
+        <p>No problem. Works without cell service.</p>
+    </div>
+    <div class="stat">
+        <h3>1 Tap</h3>
+        <p>Instant location sharing to your group.</p>
+    </div>
+    <div class="stat">
+        <h3>3 Presses</h3>
+        <p>Emergency SOS broadcast to all peers.</p>
+    </div>
+    <div class="stat">
+        <h3>GPS + BLE</h3>
+        <p>Dual tracking for precision outdoors.</p>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Features -->
+<section id="features">
+    <p class="section-label fade-in">Features</p>
+    <h2 class="fade-in">Everything You Need<br>Past the Last Cell Tower</h2>
+    <p class="section-desc fade-in">Smoke Signal replaces the gear bag full of radios, paper maps, and hope. One app, one tracker, total group awareness.</p>
+
+    <div class="features-grid">
+        <div class="feature-card fade-in">
+            <div class="feature-icon">📍</div>
+            <h3>Live Group Map</h3>
+            <p>See every member of your group on a real-time map with GPS breadcrumb trails. Know exactly where everyone is, even deep in the backcountry.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-icon">💬</div>
+            <h3>Offline Messaging</h3>
+            <p>Send and receive text messages between devices without any internet connection. Messages are location-tagged so your group always has context.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-icon">🚨</div>
+            <h3>Emergency SOS</h3>
+            <p>Triple-press the tracker button to instantly broadcast an emergency alert with your exact GPS coordinates to every connected group member.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-icon">🗺️</div>
+            <h3>Route Planning &amp; Recording</h3>
+            <p>Plan your route with waypoints before you leave. Auto-record your actual path as you go. Export to GPX or KML to share with others.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-icon">🌦️</div>
+            <h3>Weather Overlay</h3>
+            <p>Live weather conditions layered right on your map. Make smarter decisions about when to push forward and when to find shelter.</p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-icon">🔋</div>
+            <h3>Tracker Battery Monitoring</h3>
+            <p>Always know your tracker's battery level right from the app. No surprises when you're 20 miles from the trailhead.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- How It Works -->
+<section id="how-it-works">
+    <p class="section-label fade-in">How It Works</p>
+    <h2 class="fade-in">Up and Running in Minutes</h2>
+    <p class="section-desc fade-in">No accounts, no subscriptions, no complicated setup. Pair your tracker and go.</p>
+
+    <div class="steps">
+        <div class="step fade-in">
+            <h3>Grab a Tracker</h3>
+            <p>Pick up a SenseCAP T1000-E — a rugged, pocket-sized GPS tracker with Bluetooth and long battery life built for the outdoors.</p>
+        </div>
+        <div class="step fade-in">
+            <h3>Pair with Smoke Signal</h3>
+            <p>Open the app, turn on your tracker, and they connect automatically over Bluetooth. No accounts to create, no cloud to configure.</p>
+        </div>
+        <div class="step fade-in">
+            <h3>Add Your Group</h3>
+            <p>Other Smoke Signal users nearby are discovered automatically. Everyone in your group appears on the shared map in real time.</p>
+        </div>
+        <div class="step fade-in">
+            <h3>Go Explore</h3>
+            <p>Hit the trail. Your group stays connected with live locations, offline chat, and emergency SOS — no cell towers required.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Use Cases -->
+<section id="use-cases">
+    <p class="section-label fade-in">Built For</p>
+    <h2 class="fade-in">Wherever the Signal Drops</h2>
+    <p class="section-desc fade-in">Designed for anyone who ventures beyond cell coverage with a group they need to stay connected to.</p>
+
+    <div class="use-cases">
+        <div class="use-case fade-in">
+            <div class="use-case-icon">🥾</div>
+            <h3>Hiking &amp; Backpacking</h3>
+            <p>Split up on the trail without losing track. Regroup faster. Know who's ahead and who's behind without shouting into the wind.</p>
+        </div>
+        <div class="use-case fade-in">
+            <div class="use-case-icon">🏔️</div>
+            <h3>Backcountry Skiing</h3>
+            <p>Track your group across runs and bowls. Record lines for later. SOS if something goes wrong on a steep face.</p>
+        </div>
+        <div class="use-case fade-in">
+            <div class="use-case-icon">🏕️</div>
+            <h3>Camping &amp; Hunting</h3>
+            <p>Keep tabs on your campsite, mark points of interest, and message the group without relying on spotty radio coverage.</p>
+        </div>
+        <div class="use-case fade-in">
+            <div class="use-case-icon">🛶</div>
+            <h3>Paddling &amp; Water Sports</h3>
+            <p>Stay connected across open water where cell service is nonexistent. Track drift, share locations, coordinate meetups at the takeout.</p>
+        </div>
+        <div class="use-case fade-in">
+            <div class="use-case-icon">🔍</div>
+            <h3>Search &amp; Rescue</h3>
+            <p>Coordinate field teams with real-time positions and messaging. SOS alerts with GPS ensure rapid response when seconds matter.</p>
+        </div>
+        <div class="use-case fade-in">
+            <div class="use-case-icon">🏗️</div>
+            <h3>Remote Work Sites</h3>
+            <p>Track crew positions across large job sites with no infrastructure. Offline comms keep operations running without cell towers.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section" id="get-started">
+    <p class="section-label fade-in">Get Started</p>
+    <h2 class="fade-in">Never Lose Your Group<br>in the Backcountry Again</h2>
+    <p class="fade-in">Download Smoke Signal, pair a SenseCAP T1000-E tracker, and head out with confidence.</p>
+    <div class="hero-actions fade-in">
+        <a href="#" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download on the App Store
+        </a>
+        <a href="https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html" class="btn-secondary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+            Get the Tracker
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#use-cases">Use Cases</a>
+        <a href="https://github.com/cameronwc/smoke-signal">Open Source</a>
+    </div>
+    <p>Smoke Signal &copy; 2026 &middot; Built for the backcountry.</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
