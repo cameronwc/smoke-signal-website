@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
+  pull_request:
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -11,8 +13,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: true
 
 jobs:
   validate:
@@ -31,7 +33,9 @@ jobs:
         run: npm install -g html-validate
 
       - name: Validate HTML
-        run: html-validate index.html
+        run: |
+          html-validate index.html
+          html-validate privacy.html
 
   lighthouse:
     name: Lighthouse CI
@@ -59,6 +63,7 @@ jobs:
 
   deploy:
     name: Deploy
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: [validate, lighthouse]
     environment:
       name: github-pages
