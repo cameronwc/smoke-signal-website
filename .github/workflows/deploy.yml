@@ -33,7 +33,9 @@ jobs:
         run: npm install -g html-validate
 
       - name: Validate HTML
-        run: html-validate index.html
+        run: |
+          html-validate index.html
+          html-validate privacy.html
 
   lighthouse:
     name: Lighthouse CI
