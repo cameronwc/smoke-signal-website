@@ -12,7 +12,7 @@
     <meta property="og:url" content="https://cameronwc.github.io/smoke-signal-website/">
     <link rel="canonical" href="https://cameronwc.github.io/smoke-signal-website/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://buttondown.com;">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -1023,29 +1023,28 @@ function handleNotifySubmit(e) {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
-    /*
-     * TODO: Replace with actual email collection endpoint.
-     * Options: Mailchimp, ConvertKit, Buttondown, or Cloudflare Worker.
-     * Expected: POST to endpoint with { email: email }
-     * On success: show success message.
-     * On error: show error message, re-enable form.
-     *
-     * Example with fetch:
-     * fetch('https://YOUR_ENDPOINT', {
-     *     method: 'POST',
-     *     headers: { 'Content-Type': 'application/json' },
-     *     body: JSON.stringify({ email: email })
-     * })
-     * .then(function(res) { ... })
-     * .catch(function(err) { ... });
-     */
-
-    /* Simulate success for now */
-    setTimeout(function() {
-        document.getElementById('notifyForm').style.display = 'none';
-        document.querySelector('.modal-privacy-notice').style.display = 'none';
-        document.getElementById('notifySuccess').style.display = 'block';
-    }, 500);
+    fetch('https://buttondown.com/api/emails/embed-subscribe/smokesignal', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'email=' + encodeURIComponent(email)
+    })
+    .then(function(res) {
+        if (res.ok || res.status === 201) {
+            document.getElementById('notifyForm').style.display = 'none';
+            document.querySelector('.modal-privacy-notice').style.display = 'none';
+            document.getElementById('notifySuccess').style.display = 'block';
+        } else {
+            return res.text().then(function(body) {
+                throw new Error(body || 'Subscription failed');
+            });
+        }
+    })
+    .catch(function() {
+        errorEl.textContent = 'Something went wrong. Please try again.';
+        errorEl.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Notify Me';
+    });
 }
 </script>
 </body>
