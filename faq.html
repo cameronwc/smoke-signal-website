@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ — Smoke Signal</title>
+    <meta name="description" content="Frequently asked questions about Smoke Signal — off-grid group chat, mesh relaying, LoRa radio hardware, range, offline maps, SOS, privacy, and pricing.">
+    <meta name="theme-color" content="#060a0c">
+    <meta property="og:title" content="FAQ — Smoke Signal">
+    <meta property="og:description" content="How off-grid messaging works, what hardware you need, range and battery expectations, offline maps, encrypted groups, SOS, privacy, and pricing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cameronwc.github.io/smoke-signal-website/faq.html">
+    <link rel="canonical" href="https://cameronwc.github.io/smoke-signal-website/faq.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23060a0c'/><circle cx='50' cy='54' r='9' fill='%23f97316'/><circle cx='50' cy='54' r='25' fill='none' stroke='%23f97316' stroke-width='5' opacity='.55'/><circle cx='50' cy='54' r='41' fill='none' stroke='%23f97316' stroke-width='5' opacity='.25'/></svg>">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Smoke Signal?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Smoke Signal is an off-grid communication and navigation app for iPhone and iPad. It gives your group encrypted chat, live location sharing, offline maps, and emergency SOS over a LoRa mesh radio — no cell service, no internet, no accounts." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Smoke Signal work without cell service?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes — that is the entire point. Smoke Signal is built to operate with zero cell coverage and zero internet. Messages, locations, and SOS alerts travel directly between devices over radio." }
+            },
+            {
+                "@type": "Question",
+                "name": "How does off-grid messaging work?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Your phone pairs with a small LoRa mesh radio over Bluetooth. The radios talk to each other directly over long-range radio waves, and every radio in the group also relays messages it hears — so a message hops from radio to radio until it reaches everyone, even members far beyond direct range." }
+            },
+            {
+                "@type": "Question",
+                "name": "What hardware do I need?",
+                "acceptedAnswer": { "@type": "Answer", "text": "An iPhone or iPad running iOS 18.2 or later, plus a compatible LoRa mesh radio for each group member who needs long range. At close range, Smoke Signal phones can also chat directly with each other over local peer-to-peer wireless — no radio required." }
+            },
+            {
+                "@type": "Question",
+                "name": "What range can I expect?",
+                "acceptedAnswer": { "@type": "Answer", "text": "It depends on terrain. In dense forest or rolling hills, plan on roughly a kilometre or two per hop. With clear line of sight — ridge to ridge, across open water — a single hop can stretch much farther. Every group member's radio relays messages, so range grows with your group." }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does the battery last?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The radio runs on its own battery and is built to sip power — days of standby are typical. Cold weather, frequent position broadcasts, and heavy messaging all cut into that, so pack a small battery bank for multi-day trips. The app itself is optimised for efficient background operation on your phone." }
+            },
+            {
+                "@type": "Question",
+                "name": "How do offline maps work?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Before you leave coverage, download the map tiles for your region — pick an area, set a radius, and Smoke Signal caches the tiles on your device. GPS does not need cell service, so your position, breadcrumb trail, and cached maps keep working anywhere." }
+            },
+            {
+                "@type": "Question",
+                "name": "How do group chats and channels work?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Your group shares a channel — a name plus an encryption key. Everyone on the channel sees group messages; anyone without the key cannot read them. Share a channel in seconds with a QR code." }
+            },
+            {
+                "@type": "Question",
+                "name": "Who can read my messages?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Only people who hold your channel key. Messages over the mesh are encrypted with that key, and phone-to-phone messages are encrypted end-to-end. To anyone outside your channel, your traffic is noise." }
+            },
+            {
+                "@type": "Question",
+                "name": "How does SOS work?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Trigger SOS and your GPS coordinates broadcast to every member of your group, re-sending automatically until you cancel. Everyone sees the alert and your position on their map. SOS reaches your group over the mesh — it does not contact satellite rescue services, so it is not a replacement for a satellite communicator on solo trips." }
+            },
+            {
+                "@type": "Question",
+                "name": "What data does Smoke Signal collect?",
+                "acceptedAnswer": { "@type": "Answer", "text": "None. There are no accounts, no cloud, no analytics, and no tracking. Messages, locations, and routes live on your device and travel only to your group over local radio. Delete any of it — or all of it — whenever you want." }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there a subscription?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. Never. The app is a one-time unlock and the radio is a one-time purchase. LoRa mesh has no airtime cost, so there is nothing to subscribe to — no monthly fees, no activation charges, no accounts." }
+            }
+        ]
+    }
+    </script>
+    <style>
+:root {
+    --basin-0: #060a0c;
+    --basin-1: #0a1114;
+    --basin-2: #0e171b;
+    --basin-3: #142025;
+    --basin-4: #1b2b31;
+    --ridge: #22343b;
+    --ridge-bright: #31474f;
+    --contour: rgba(76, 110, 122, .16);
+    --ember: #f97316;
+    --ember-high: #fb923c;
+    --ember-glow: rgba(249, 115, 22, .1);
+    --text-hi: #e9eef0;
+    --text-mid: #a3b2b9;
+    --text-low: #76878f;
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+    --radius-control: 6px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--basin-0);
+    color: var(--text-hi);
+    line-height: 1.65;
+    overflow-x: hidden;
+}
+
+body:after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    pointer-events: none;
+    opacity: .04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+}
+
+.mono-label {
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.mono-meta {
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    letter-spacing: .06em;
+    color: var(--text-low);
+}
+
+.frame {
+    position: relative;
+    border: 1px solid var(--ridge);
+    background: var(--basin-2);
+}
+
+.frame:before, .frame:after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+}
+
+.frame:before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid var(--ridge-bright);
+    border-left: 2px solid var(--ridge-bright);
+}
+
+.frame:after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid var(--ridge-bright);
+    border-right: 2px solid var(--ridge-bright);
+}
+
+/* ── Nav ── */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1rem 2rem;
+    background: #060a0ce0;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--ridge);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    font-family: var(--font-mono);
+    font-size: .85rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--text-hi);
+    text-decoration: none;
+}
+
+.logo svg { color: var(--ember); }
+
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+
+.nav-links a {
+    color: var(--text-mid);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: .78rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    transition: color .2s;
+}
+
+.nav-links a:hover { color: var(--text-hi); }
+
+.nav-links a.active { color: var(--ember-high); }
+
+.nav-cta {
+    background: var(--ember) !important;
+    color: var(--basin-0) !important;
+    padding: .5rem 1.1rem;
+    border-radius: var(--radius-control);
+    font-weight: 600 !important;
+    transition: background .2s !important;
+}
+
+.nav-cta:hover { background: var(--ember-high) !important; }
+
+.mobile-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: .25rem;
+}
+
+.mobile-menu svg { stroke: var(--text-mid); display: block; }
+
+/* ── Page header ── */
+.page-header {
+    padding: 10rem 2rem 4rem;
+    max-width: 880px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.page-light {
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 720px;
+    height: 720px;
+    background: radial-gradient(circle, var(--ember-glow) 0%, transparent 62%);
+    pointer-events: none;
+}
+
+.section-label {
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    color: var(--ember-high);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    position: relative;
+    z-index: 2;
+}
+
+.section-label:before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--ember);
+}
+
+h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: -.025em;
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 2;
+}
+
+h1 span { color: var(--ember-high); }
+
+.page-sub {
+    font-size: 1.1rem;
+    color: var(--text-mid);
+    max-width: 560px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+
+/* ── FAQ sections ── */
+.faq-wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+}
+
+.faq-section { padding-top: 3.5rem; }
+
+h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    font-weight: 300;
+    letter-spacing: -.02em;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+}
+
+.faq-item {
+    border-top: 1px solid var(--ridge);
+    background: transparent;
+    transition: background .2s;
+}
+
+.faq-item:last-child { border-bottom: 1px solid var(--ridge); }
+
+.faq-item[open] { background: var(--basin-1); }
+
+.faq-item summary {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.25rem .75rem;
+    cursor: pointer;
+    list-style: none;
+    font-size: 1.02rem;
+    font-weight: 500;
+    letter-spacing: -.01em;
+    color: var(--text-hi);
+    transition: color .2s;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary:hover { color: var(--ember-high); }
+
+.faq-index {
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    letter-spacing: .1em;
+    color: var(--text-low);
+    flex-shrink: 0;
+    min-width: 2.4rem;
+}
+
+.faq-marker {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: .9rem;
+    color: var(--text-low);
+    flex-shrink: 0;
+}
+
+.faq-item[open] .faq-marker { color: var(--ember-high); }
+
+.faq-marker:after { content: "+"; }
+
+.faq-item[open] .faq-marker:after { content: "\2212"; }
+
+.faq-answer { padding: 0 .75rem 1.5rem 4.15rem; }
+
+.faq-answer p {
+    color: var(--text-mid);
+    font-size: .94rem;
+    line-height: 1.7;
+    margin-bottom: .8rem;
+}
+
+.faq-answer p:last-child { margin-bottom: 0; }
+
+.faq-answer strong { color: var(--text-hi); font-weight: 600; }
+
+.faq-answer a { color: var(--ember-high); text-decoration: underline; }
+
+/* ── CTA ── */
+.faq-cta {
+    margin-top: 4.5rem;
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.faq-cta h2 { margin-bottom: .75rem; }
+
+.faq-cta p {
+    color: var(--text-mid);
+    max-width: 460px;
+    margin: 0 auto 1.75rem;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .9rem 1.9rem;
+    background: var(--ember);
+    color: var(--basin-0);
+    font-family: var(--font-body);
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+    border-radius: var(--radius-control);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.btn-primary:hover { background: var(--ember-high); }
+
+/* ── Footer ── */
+footer {
+    border-top: 1px solid var(--ridge);
+    padding: 4rem 2rem 2rem;
+    color: var(--text-low);
+    font-size: .85rem;
+}
+
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+
+footer a {
+    color: var(--text-mid);
+    text-decoration: none;
+    display: block;
+    margin-bottom: .6rem;
+    transition: color .2s;
+}
+
+footer a:hover { color: var(--ember-high); }
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 1.2fr) 1fr 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.footer-col { display: flex; flex-direction: column; }
+
+.footer-heading { color: var(--text-low); margin-bottom: 1rem; }
+
+.spec-block {
+    padding: 1.5rem;
+    background: repeating-linear-gradient(0deg, var(--contour) 0 1px, transparent 1px 48px), var(--basin-1);
+}
+
+.spec-title { color: var(--ember-high); display: block; margin-bottom: 1.25rem; }
+
+.spec-block dl { margin: 0; }
+
+.spec-row {
+    display: flex;
+    gap: 1rem;
+    padding: .45rem 0;
+    border-bottom: 1px solid var(--ridge);
+}
+
+.spec-row:last-child { border-bottom: none; }
+
+.spec-row dt {
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-low);
+    flex: 0 0 88px;
+    padding-top: .15rem;
+}
+
+.spec-row dd { color: var(--text-mid); font-size: .85rem; margin: 0; }
+
+.footer-bottom {
+    border-top: 1px solid var(--ridge);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* ── Utility ── */
+.fade-in {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-in { opacity: 1; transform: none; transition: none; }
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--ember);
+    color: var(--basin-0);
+    padding: .5rem 1rem;
+    z-index: 500;
+    font-weight: 600;
+}
+
+.skip-link:focus { left: 0; }
+
+:focus-visible { outline: 2px solid var(--ember); outline-offset: 2px; }
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-menu { display: block; }
+    .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--basin-1);
+        border-bottom: 1px solid var(--ridge);
+        padding: 1.5rem 2rem;
+        gap: 1.25rem;
+    }
+    .page-header { padding: 8rem 1.5rem 2.5rem; }
+    .faq-wrap { padding: 0 1.5rem 4.5rem; }
+    .faq-answer { padding-left: .75rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .footer-bottom { justify-content: center; text-align: center; }
+}
+    </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<!-- Nav -->
+<nav aria-label="Main navigation">
+    <a href="index.html" class="logo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="13" r="2.5" fill="currentColor"/>
+            <circle cx="12" cy="13" r="6.5" stroke="currentColor" stroke-width="1.5" opacity="0.55"/>
+            <circle cx="12" cy="13" r="10.5" stroke="currentColor" stroke-width="1.5" opacity="0.25"/>
+        </svg>
+        Smoke Signal
+    </a>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="faq.html" class="active" aria-current="page">FAQ</a>
+        <a href="index.html#get-started" class="nav-cta">Get Started</a>
+    </div>
+    <button type="button" class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="square" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+    </button>
+</nav>
+
+<main id="main-content">
+
+<header class="page-header">
+    <div class="page-light" aria-hidden="true"></div>
+    <p class="section-label">Field Manual</p>
+    <h1>Questions, <span>Answered.</span></h1>
+    <p class="page-sub">
+        Everything you need to know before you head past the last cell tower —
+        how the mesh works, what gear you need, and what happens to your data. Nothing.
+    </p>
+</header>
+
+<div class="faq-wrap">
+
+    <!-- 01 / The Basics -->
+    <section class="faq-section fade-in" aria-labelledby="basics-heading">
+        <p class="section-label">01 / The Basics</p>
+        <h2 id="basics-heading">What Smoke Signal Is</h2>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">1.1</span>What is Smoke Signal?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Smoke Signal is an off-grid communication and navigation app for iPhone and iPad. It gives your group encrypted chat, live location sharing on a shared map, offline maps, route recording, and emergency SOS — all over a LoRa mesh radio, with no cell service, no internet, and no accounts.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">1.2</span>Who is it for?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Groups that go where coverage doesn't. Hikers and backpackers, backcountry skiers, hunters, paddlers, search-and-rescue teams, and crews on remote work sites. If your group splits up beyond shouting distance and beyond cell bars, Smoke Signal keeps everyone on the same map and in the same conversation.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">1.3</span>Does it really work without cell service?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Yes — that's the entire point. Smoke Signal is built to operate with zero cell coverage and zero internet. Messages, locations, and SOS alerts travel directly between devices over radio. Nothing depends on a tower, a satellite, or a server.</p>
+            </div>
+        </details>
+    </section>
+
+    <!-- 02 / How It Works -->
+    <section class="faq-section fade-in" aria-labelledby="mesh-heading">
+        <p class="section-label">02 / The Mesh</p>
+        <h2 id="mesh-heading">How Off-Grid Messaging Works</h2>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">2.1</span>How does messaging work without the internet?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Your phone pairs with a small LoRa mesh radio over Bluetooth. The radios talk to each other directly over long-range, low-power radio waves — think of each one as a tiny relay tower your group carries.</p>
+                <p>Here's the part that matters: every radio in the group also <strong>repeats messages it hears</strong>. If you're too far from a friend to reach them directly, your message hops through the radios in between until it arrives. More people in your group means more relays, more range, and more paths for a message to get through. If one path drops, the mesh routes around it.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">2.2</span>What hardware do I need?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Two things: an iPhone or iPad running iOS 18.2 or later, and a compatible LoRa mesh radio for each group member who needs long range. The radio pairs with your phone over Bluetooth and rides in a pocket or clips to a pack strap.</p>
+                <p>No radio yet? At close range, Smoke Signal phones can also chat directly with each other over local peer-to-peer wireless — useful around camp, but the radio is what carries your group across valleys.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">2.3</span>Which radios work with Smoke Signal?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Smoke Signal pairs with compatible LoRa mesh radios over Bluetooth — including the Smoke Signal radio we're building, designed end-to-end for the app. Pair it once and it just works: GPS positions, messages, and battery telemetry flow straight into the app.</p>
+                <p><a href="index.html#get-started">Join the launch list</a> to hear when the app and radio ship.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">2.4</span>What range can I expect?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Honest answer: it depends on terrain. Radio range is governed by line of sight. In dense forest or rolling hills, plan on roughly a kilometre or two per hop. From a ridgeline or across open water, a single hop can stretch many times that.</p>
+                <p>Remember that range compounds — every member's radio relays messages, so a spread-out group covers far more ground than any single link. Treat any fixed number with suspicion, including ours: test with your group before you depend on it.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">2.5</span>How long do the batteries last?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>The radio runs on its own battery and is built to sip power — days of standby are typical. Cold weather, frequent position broadcasts, and heavy message traffic all cut into that, so pack a small battery bank on multi-day trips.</p>
+                <p>On your phone, the app is optimised for efficient background operation, and you can watch every group member's radio battery level right in the app — no guessing who's about to go dark.</p>
+            </div>
+        </details>
+    </section>
+
+    <!-- 03 / Maps & Navigation -->
+    <section class="faq-section fade-in" aria-labelledby="maps-heading">
+        <p class="section-label">03 / Maps &amp; Navigation</p>
+        <h2 id="maps-heading">Offline Maps and Routes</h2>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">3.1</span>How do offline maps work?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Download your maps before you leave coverage. In the app, pick a region, set a radius, choose the detail level, and Smoke Signal caches the map tiles on your device — best done on Wi-Fi, since a large region is a big download.</p>
+                <p>Once cached, the map works anywhere. GPS doesn't need cell service, so your position, your group's positions, and your breadcrumb trail all keep rendering on the stored map with zero connectivity.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">3.2</span>Can I plan and record routes?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Yes. Record live routes with real-time distance, elapsed time, and elevation stats. Import GPX files from your planning tools, export your recordings to share with the group, and drop waypoints with coordinates and elevation as you move.</p>
+            </div>
+        </details>
+    </section>
+
+    <!-- 04 / Groups, Privacy & SOS -->
+    <section class="faq-section fade-in" aria-labelledby="privacy-heading">
+        <p class="section-label">04 / Groups, Privacy &amp; SOS</p>
+        <h2 id="privacy-heading">Your Group, Your Data</h2>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">4.1</span>How do group chats and channels work?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Your group shares a <strong>channel</strong> — a name plus an encryption key. Everyone on the channel sees group messages and appears on the shared map. Sharing a channel takes seconds: one person shows a QR code, everyone else scans it. You can also message individual group members directly.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">4.2</span>Who can read my messages?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Only people who hold your channel key. Messages over the mesh are encrypted with that key — another radio in the area without it just hears noise. Phone-to-phone messages are encrypted end-to-end as well, and the key itself is stored in your device's secure Keychain, never in plain storage.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">4.3</span>How does the SOS feature work?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Trigger SOS and your exact GPS coordinates broadcast to every member of your group, re-sending automatically until you cancel. Everyone gets an alert and sees your position on their map, so the people closest to you can move first. A countdown before broadcast prevents false alarms.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">4.4</span>Does SOS contact rescue services?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>No — and you should know this before you rely on it. Smoke Signal's SOS reaches <strong>your group</strong>, over the mesh, within radio range. It does not contact emergency services, and it is not a satellite communicator. For solo travel far from any partner, carry a dedicated satellite device. Smoke Signal is built for group coordination — the fastest help is usually the person one ridge over.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">4.5</span>What data does Smoke Signal collect about me?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>None. There are no accounts to create, no cloud to sync to, no analytics, and no tracking. Your messages, locations, routes, and SOS history live on your device and travel only to your group over local radio. We never see them — there's no server to send them to.</p>
+                <p>You can delete chat history, location history, or everything at once from the app's settings. Full details in our <a href="privacy.html">Privacy Policy</a>.</p>
+            </div>
+        </details>
+    </section>
+
+    <!-- 05 / Pricing -->
+    <section class="faq-section fade-in" aria-labelledby="pricing-heading">
+        <p class="section-label">05 / Pricing</p>
+        <h2 id="pricing-heading">What It Costs</h2>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">5.1</span>Is there a subscription?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>No. Never. Satellite communicators charge monthly fees because satellite airtime costs money. LoRa mesh radio costs nothing to use — so we have nothing to charge you for each month. No subscription, no activation fees, no airtime plans.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary><span class="faq-index" aria-hidden="true">5.2</span>So what do I actually pay for?<span class="faq-marker" aria-hidden="true"></span></summary>
+            <div class="faq-answer">
+                <p>Two one-time purchases: the radio hardware, and a one-time unlock in the app for the full feature set. Buy it once, own it outright — like the rest of your gear. The app downloads free, so you can pair a radio and try the core experience before unlocking anything.</p>
+            </div>
+        </details>
+    </section>
+
+    <!-- CTA -->
+    <div class="faq-cta frame fade-in">
+        <h2>Still Have Questions?</h2>
+        <p>Join the launch list and we'll keep you posted — or head back to see every feature in detail.</p>
+        <a href="index.html#get-started" class="btn-primary">Get Notified at Launch</a>
+    </div>
+
+</div>
+
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="spec-block frame">
+                    <span class="spec-title mono-label">Requirements</span>
+                    <dl>
+                        <div class="spec-row">
+                            <dt>System</dt>
+                            <dd>iOS 18.2 or later</dd>
+                        </div>
+                        <div class="spec-row">
+                            <dt>Device</dt>
+                            <dd>iPhone or iPad</dd>
+                        </div>
+                        <div class="spec-row">
+                            <dt>Radio</dt>
+                            <dd>Compatible LoRa radio</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="footer-col">
+                <p class="footer-heading mono-label">Product</p>
+                <a href="index.html#features">Features</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="index.html#use-cases">Use Cases</a>
+            </div>
+            <div class="footer-col">
+                <p class="footer-heading mono-label">Resources</p>
+                <a href="faq.html">FAQ</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+                <p class="footer-heading mono-label">Connect</p>
+                <a href="https://github.com/cameronwc" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Smoke Signal &copy; 2026 &middot; Built for the backcountry.</p>
+            <p class="mono-meta">46.8520, -121.7260 &middot; GRID 10T</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+/* Intersection Observer for fade-in animations */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* Mobile menu toggle with aria-expanded */
+function toggleMobileMenu() {
+    var nav = document.getElementById('navLinks');
+    var btn = document.querySelector('.mobile-menu');
+    var isOpen = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+}
+</script>
+</body>
+</html>

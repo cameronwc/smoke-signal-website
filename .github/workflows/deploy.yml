@@ -36,6 +36,7 @@ jobs:
         run: |
           html-validate index.html
           html-validate privacy.html
+          html-validate faq.html
 
   lighthouse:
     name: Lighthouse CI
