@@ -7,12 +7,44 @@
     <meta name="description" content="Smoke Signal privacy policy. Your data stays on your device — no accounts, no cloud, no tracking.">
     <meta name="theme-color" content="#0a0a0f">
     <meta property="og:title" content="Privacy Policy — Smoke Signal">
-    <meta property="og:description" content="Smoke Signal privacy policy. Your data stays on your device.">
+    <meta property="og:description" content="Smoke Signal privacy policy. Your data stays on your device — no accounts, no cloud, no tracking.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cameronwc.github.io/smoke-signal-website/privacy.html">
-    <link rel="canonical" href="https://cameronwc.github.io/smoke-signal-website/privacy.html">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+    <meta property="og:url" content="https://usesmokesignal.com/privacy.html">
+    <meta property="og:site_name" content="Smoke Signal">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://usesmokesignal.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Smoke Signal — off-grid group communication for outdoor groups.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Privacy Policy — Smoke Signal">
+    <meta name="twitter:description" content="Your data stays on your device — no accounts, no cloud, no tracking.">
+    <meta name="twitter:image" content="https://usesmokesignal.com/og-image.png">
+    <link rel="canonical" href="https://usesmokesignal.com/privacy.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23060a0c'/><circle cx='50' cy='54' r='9' fill='%23f97316'/><circle cx='50' cy='54' r='25' fill='none' stroke='%23f97316' stroke-width='5' opacity='.55'/><circle cx='50' cy='54' r='41' fill='none' stroke='%23f97316' stroke-width='5' opacity='.25'/></svg>">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://usesmokesignal.com/#organization",
+                "name": "Smoke Signal",
+                "url": "https://usesmokesignal.com/",
+                "logo": "https://usesmokesignal.com/logo.png",
+                "description": "Smoke Signal makes an off-grid group-communication system — a mesh-radio device paired with an iPhone app — that lets outdoor groups message each other and share a live map with no cell service and no monthly fee."
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://usesmokesignal.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://usesmokesignal.com/privacy.html" }
+                ]
+            }
+        ]
+    }
+    </script>
     <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -154,6 +186,18 @@
         footer a { color: var(--text-secondary); text-decoration: none; }
         footer a:hover { color: var(--accent); }
 
+        .safety-note {
+            max-width: 720px;
+            margin: 0 auto 1.5rem;
+            padding: 1rem 1.25rem;
+            border-left: 2px solid var(--accent);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+
         .footer-links {
             display: flex;
             justify-content: center;
@@ -190,13 +234,13 @@
     <p>Smoke Signal accesses the following data locally on your device to provide its core functionality. None of this data is transmitted to Smoke Signal servers (there are none).</p>
 
     <h3>Location Data</h3>
-    <p>GPS coordinates from your device are used to display your position on the map, record routes, and share your location with nearby peers over local wireless connections. Location data is stored on-device only and is never sent to external servers by the app.</p>
+    <p>GPS coordinates from your device are used to display your position on the map, record routes, and share your location with nearby group members over local wireless connections. Location data is stored on-device only and is never sent to external servers by the app.</p>
 
     <h3>Bluetooth &amp; Wireless Identifiers</h3>
-    <p>Smoke Signal uses Bluetooth Low Energy (BLE) to connect to compatible LoRa radio devices, and local peer-to-peer networking to discover nearby group members. Device identifiers used for pairing are stored locally and not transmitted externally.</p>
+    <p>Smoke Signal uses Bluetooth Low Energy (BLE) to connect to your Smoke Signal device, and local networking to discover nearby group members. Device identifiers used for pairing are stored locally and not transmitted externally.</p>
 
     <h3>Messages</h3>
-    <p>Chat messages and SOS alerts are exchanged directly between devices over local wireless connections (Bluetooth and peer-to-peer). Messages are stored on each device locally and are not routed through any central server.</p>
+    <p>Chat messages and Group Alerts are exchanged directly between devices over local wireless connections (Bluetooth and local networking). Messages are stored on each device locally and are not routed through any central server.</p>
 
     <h3>Routes &amp; Waypoints</h3>
     <p>Route recordings, GPX imports/exports, and waypoints are stored locally on your device. You control when and how to export or share this data.</p>
@@ -206,7 +250,7 @@
 
     <h2>Data Sharing</h2>
     <p>Your location is never uploaded to any Smoke Signal server — we don't have servers. If you enable the optional weather feature, your approximate coordinates are sent to OpenWeatherMap to fetch local conditions; disable weather and nothing leaves your device. Data exchanged between group members travels directly between devices over local wireless connections — not through Smoke Signal's infrastructure (there is none).</p>
-    <p>When you share your location or send messages, that data is transmitted directly to nearby peers using Bluetooth and local networking. Only devices in your immediate proximity can receive this data.</p>
+    <p>When you share your location or send messages, that data is transmitted directly to nearby group members using Bluetooth and local networking. Only devices in your immediate proximity can receive this data.</p>
 
     <h2>Third-Party Services</h2>
     <p>Smoke Signal integrates with a small number of third-party services for specific features:</p>
@@ -222,9 +266,9 @@
 
     <ul>
         <li><strong>Location (Always/When In Use)</strong> — Required for map display, route recording, and location sharing with your group.</li>
-        <li><strong>Bluetooth</strong> — Required to connect to compatible LoRa radio devices.</li>
+        <li><strong>Bluetooth</strong> — Required to connect to your Smoke Signal device.</li>
         <li><strong>Local Network</strong> — Required to discover and communicate with nearby Smoke Signal users.</li>
-        <li><strong>Notifications</strong> — Used for SOS alerts, message notifications, and background activity alerts.</li>
+        <li><strong>Notifications</strong> — Used for Group Alerts, message notifications, and background activity alerts.</li>
     </ul>
     <p>You can revoke any permission at any time through iOS Settings. Some features may not function without the required permissions.</p>
 
@@ -249,11 +293,12 @@
 </main>
 
 <footer>
+    <p class="safety-note">Smoke Signal is not a satellite messenger and does not contact emergency services (911). Group Alert reaches only group members within radio range. For life-threatening emergencies, carry a satellite communicator or ensure cell coverage.</p>
     <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="index.html#features">Features</a>
         <a href="faq.html">FAQ</a>
-        <a href="https://github.com/cameronwc/smoke-signal" target="_blank" rel="noopener noreferrer">Open Source</a>
+        <a href="index.html#get-started">Join the Waitlist</a>
     </div>
     <p>Smoke Signal &copy; 2026 &middot; Built for the backcountry.</p>
 </footer>

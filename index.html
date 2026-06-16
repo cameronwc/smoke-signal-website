@@ -4,38 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smoke Signal — Stay Connected Off-Grid</title>
-    <meta name="description" content="Smoke Signal keeps your group connected in the backcountry. Encrypted P2P chat, live GPS tracking, GPX import/export, and emergency SOS — no cell service needed.">
+    <meta name="description" content="Smoke Signal keeps your whole group connected off the grid. See everyone on a live map and message them anywhere — no cell service, no subscription, and no monthly fees.">
     <meta name="theme-color" content="#060a0c">
     <meta property="og:title" content="Smoke Signal — Stay Connected Off-Grid">
-    <meta property="og:description" content="Encrypted P2P chat, live GPS tracking, GPX import/export, and emergency SOS for outdoor groups. No cell service needed.">
+    <meta property="og:description" content="See your whole group on a live map and message them anywhere — even with zero cell service. A device and an app, with no subscription and no monthly fees.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cameronwc.github.io/smoke-signal-website/">
-    <link rel="canonical" href="https://cameronwc.github.io/smoke-signal-website/">
+    <meta property="og:url" content="https://usesmokesignal.com/">
+    <meta property="og:site_name" content="Smoke Signal">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://usesmokesignal.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Smoke Signal — off-grid group communication. See your whole group on a live map and message them anywhere with no cell service and no monthly fees.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Smoke Signal — Stay Connected Off-Grid">
+    <meta name="twitter:description" content="See your whole group on a live map and message them anywhere — even with zero cell service. No subscription, no monthly fees.">
+    <meta name="twitter:image" content="https://usesmokesignal.com/og-image.png">
+    <meta name="twitter:image:alt" content="Smoke Signal — off-grid group communication for outdoor groups.">
+    <link rel="canonical" href="https://usesmokesignal.com/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23060a0c'/><circle cx='50' cy='54' r='9' fill='%23f97316'/><circle cx='50' cy='54' r='25' fill='none' stroke='%23f97316' stroke-width='5' opacity='.55'/><circle cx='50' cy='54' r='41' fill='none' stroke='%23f97316' stroke-width='5' opacity='.25'/></svg>">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://buttondown.com;">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Smoke Signal",
-        "description": "Off-grid communication and navigation app for iOS. Live GPS tracking, offline messaging, and emergency SOS — no cell service needed.",
-        "applicationCategory": "NavigationApplication",
-        "operatingSystem": "iOS",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "url": "https://cameronwc.github.io/smoke-signal-website/",
-        "author": {
-            "@type": "Organization",
-            "name": "Smoke Signal"
-        }
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://usesmokesignal.com/#organization",
+                "name": "Smoke Signal",
+                "url": "https://usesmokesignal.com/",
+                "logo": "https://usesmokesignal.com/logo.png",
+                "description": "Smoke Signal makes an off-grid group-communication system — a LoRa mesh device paired with an iPhone app — that lets outdoor groups message each other and share a live map with no cell service and no monthly fee."
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://usesmokesignal.com/#website",
+                "name": "Smoke Signal",
+                "url": "https://usesmokesignal.com/",
+                "description": "Off-grid group communication for outdoor groups — a device and an iPhone app. See your whole group on a live map and message them anywhere with no cell service and no monthly fees.",
+                "publisher": { "@id": "https://usesmokesignal.com/#organization" }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "@id": "https://usesmokesignal.com/#app",
+                "name": "Smoke Signal",
+                "operatingSystem": "iOS",
+                "applicationCategory": "TravelApplication",
+                "url": "https://usesmokesignal.com/",
+                "description": "The Smoke Signal iPhone app pairs with the Smoke Signal device to show your whole group on a live map and send messages off the grid — no cell service, no accounts, and no monthly fees. It is not a satellite messenger and does not contact emergency services.",
+                "publisher": { "@id": "https://usesmokesignal.com/#organization" }
+            },
+            {
+                "@type": "Product",
+                "name": "Smoke Signal Tag",
+                "brand": { "@id": "https://usesmokesignal.com/#organization" },
+                "category": "Off-grid communication device",
+                "image": "https://usesmokesignal.com/og-image.png",
+                "url": "https://usesmokesignal.com/#devices",
+                "description": "Compact, pocketable off-grid mesh device that keeps you on your group's live map and lets you message them with no cell service. Pairs automatically with the Smoke Signal iPhone app. Announced at $99; pre-launch — join the waitlist. Not a satellite messenger; does not contact emergency services."
+            },
+            {
+                "@type": "Product",
+                "name": "Smoke Signal Pocket",
+                "brand": { "@id": "https://usesmokesignal.com/#organization" },
+                "category": "Off-grid communication device",
+                "image": "https://usesmokesignal.com/og-image.png",
+                "url": "https://usesmokesignal.com/#devices",
+                "description": "Off-grid mesh device with a built-in screen and longer range. Read the live group map, send messages, and trigger a Group Alert without your phone. Pairs with the Smoke Signal iPhone app. Announced at $199; pre-launch — join the waitlist. Not a satellite messenger; does not contact emergency services."
+            }
+        ]
     }
     </script>
     <style>
 /* Topographic Command Surface — minified for Lighthouse; token reference + rationale in DESIGN.md */
-:root{--basin-0: #060a0c;--basin-1: #0a1114;--basin-2: #0e171b;--basin-3: #142025;--basin-4: #1b2b31;--ridge: #22343b;--ridge-bright: #31474f;--contour: rgba(76, 110, 122, .16);--contour-hi: rgba(76, 110, 122, .3);--ember: #f97316;--ember-high: #fb923c;--ember-glow: rgba(249, 115, 22, .1);--text-hi: #e9eef0;--text-mid: #a3b2b9;--text-low: #76878f;--ok: #34d399;--danger: #f87171;--font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;--font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;--font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;--radius-control: 6px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--font-body);background:var(--basin-0);color:var(--text-hi);line-height:1.65;overflow-x:hidden}body:after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}.mono-label{font-family:var(--font-mono);font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase}.mono-meta{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:var(--text-low)}.frame{position:relative;border:1px solid var(--ridge);background:var(--basin-2)}.frame:before,.frame:after{content:"";position:absolute;width:14px;height:14px;pointer-events:none}.frame:before{top:-1px;left:-1px;border-top:2px solid var(--ridge-bright);border-left:2px solid var(--ridge-bright)}.frame:after{bottom:-1px;right:-1px;border-bottom:2px solid var(--ridge-bright);border-right:2px solid var(--ridge-bright)}nav{position:fixed;top:0;width:100%;z-index:100;padding:1rem 2rem;background:#060a0ce0;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--ridge);display:flex;justify-content:space-between;align-items:center}.logo{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-mono);font-size:.85rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text-hi);text-decoration:none}.logo svg{color:var(--ember)}.nav-links{display:flex;gap:2rem;align-items:center}.nav-links a{color:var(--text-mid);text-decoration:none;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}.nav-links a:hover{color:var(--text-hi)}.nav-cta{background:var(--ember)!important;color:var(--basin-0)!important;padding:.5rem 1.1rem;border-radius:var(--radius-control);font-weight:600!important;transition:background .2s!important}.nav-cta:hover{background:var(--ember-high)!important}.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 20rem;position:relative;overflow:hidden}.hero-light{position:absolute;top:-25%;left:50%;transform:translate(-50%);width:880px;height:880px;background:radial-gradient(circle,var(--ember-glow) 0%,transparent 62%);pointer-events:none}.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}.hero-marginalia{position:absolute;z-index:2;pointer-events:none}.hero-marginalia.top-left{top:5.5rem;left:2rem;text-align:left}.hero-marginalia.top-right{top:5.5rem;right:2rem;text-align:right}.badge{display:inline-flex;align-items:center;gap:.6rem;padding:.45rem 1.1rem;border:1px solid var(--ridge);border-radius:999px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mid);margin-bottom:2.5rem;background:var(--basin-1)}.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--ok)}@media(prefers-reduced-motion:no-preference){.badge-dot{animation:pulse-dot 2s ease-in-out infinite}}@keyframes pulse-dot{0%,to{opacity:1}50%{opacity:.35}}h1{font-family:var(--font-display);font-size:clamp(2.75rem,7vw,5.25rem);font-weight:300;letter-spacing:-.025em;line-height:1.04;margin-bottom:1.75rem;max-width:820px}h1 span{color:var(--ember-high)}.hero-sub{font-size:1.15rem;color:var(--text-mid);max-width:560px;margin-bottom:3rem;line-height:1.7}.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}.btn-primary{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.9rem;background:var(--ember);color:var(--basin-0);font-family:var(--font-body);font-size:.95rem;font-weight:600;letter-spacing:.01em;border-radius:var(--radius-control);text-decoration:none;border:none;cursor:pointer;transition:background .2s}.btn-primary:hover{background:var(--ember-high)}.btn-secondary{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.9rem;background:var(--basin-2);color:var(--text-hi);font-family:var(--font-body);font-size:.95rem;font-weight:500;border-radius:var(--radius-control);text-decoration:none;border:1px solid var(--ridge);transition:border-color .2s,background .2s}.btn-secondary:hover{border-color:var(--ridge-bright);background:var(--basin-3)}.btn-lg{font-size:1.05rem;padding:1rem 2.3rem}.compat{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}.compat-item{display:flex;align-items:center;gap:.65rem;color:var(--text-mid);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}.compat-item svg{color:var(--text-low);flex-shrink:0}.hero-compat{margin-top:3rem;position:relative;z-index:2}.hero-terrain{position:absolute;bottom:0;left:50%;transform:translate(-50%);width:min(1300px,100%);line-height:0;z-index:1;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 32%);mask-image:linear-gradient(to bottom,transparent,#000 32%)}.hero-terrain svg{width:100%;height:auto;display:block}.contour{stroke:var(--contour);fill:none;stroke-width:1}.contour-near{stroke:var(--contour-hi);fill:none;stroke-width:1}.link-line{stroke:var(--ridge-bright);stroke-width:1;stroke-dasharray:2 6}.node-core{fill:var(--ember)}.node-tick{stroke:var(--ember-high);stroke-width:1}.svg-meta{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;fill:var(--text-low)}.ring{fill:none;stroke:var(--ember);stroke-width:1.25;transform-box:fill-box;transform-origin:center}.ring-1{opacity:.45}.ring-2{opacity:.22}.ring-3{opacity:.1}@media(prefers-reduced-motion:no-preference)and (min-width:769px){.ring{animation:propagate 6.5s linear infinite}.ring-2{animation-delay:-2.2s}.ring-3{animation-delay:-4.4s}.node-b .ring{animation-duration:7.5s}.node-c .ring{animation-duration:8.5s}}@keyframes propagate{0%{transform:scale(.18);opacity:0}6%{opacity:.6}to{transform:scale(1.5);opacity:0}}section{padding:clamp(6rem,12vh,8rem) 2rem;max-width:1200px;margin:0 auto}.section-label{font-family:var(--font-mono);font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.16em;color:var(--ember-high);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}.section-label:before{content:"";width:24px;height:1px;background:var(--ember)}h2{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,2.9rem);font-weight:300;letter-spacing:-.02em;line-height:1.12;margin-bottom:1.25rem}.section-desc{color:var(--text-mid);font-size:1.1rem;max-width:600px;margin-bottom:3.5rem}.stats-wrap{padding:0 2rem;max-width:1200px;margin:0 auto}.stats{display:grid;grid-template-columns:repeat(4,1fr);background:repeating-linear-gradient(0deg,var(--contour) 0 1px,transparent 1px 64px),repeating-linear-gradient(90deg,var(--contour) 0 1px,transparent 1px 64px),var(--basin-1)}.stats.frame{background-color:var(--basin-1)}.stat{padding:2.25rem 1.75rem 2rem;border-left:1px solid var(--ridge)}.stat:first-child{border-left:none}.stat-label{color:var(--text-low);margin-bottom:1rem;display:block}.stat-value{font-family:var(--font-mono);font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:400;letter-spacing:.02em;color:var(--ember-high);line-height:1.1;display:block;margin-bottom:.75rem;white-space:nowrap}.stat p{color:var(--text-mid);font-size:.88rem;line-height:1.55}.features-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.25rem}.feature-card{background:var(--basin-2);border:1px solid var(--ridge);padding:2rem;transition:background .2s,border-color .2s;display:flex;flex-direction:column}.feature-card:hover{background:var(--basin-3);border-color:var(--ridge-bright)}.feature-lead{grid-column:span 4;flex-direction:row;gap:2rem;align-items:stretch}.feature-lead .feature-copy{flex:1 1 55%;display:flex;flex-direction:column}.feature-lead .feature-art{flex:1 1 45%;min-height:180px;position:relative}.feature-lead .feature-art svg{position:absolute;inset:0;width:100%;height:100%}.feature-tall,.feature-third{grid-column:span 2}.feature-wide{grid-column:span 6;flex-direction:row;align-items:center;gap:2rem}.feature-wide p{max-width:720px}.feature-icon{width:44px;height:44px;border:1px solid var(--ridge-bright);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;color:var(--ember-high);flex-shrink:0}.feature-wide .feature-icon{margin-bottom:0}.feature-card h3{font-size:1.2rem;font-weight:500;letter-spacing:-.01em;margin-bottom:.6rem}.feature-card p{color:var(--text-mid);font-size:.9rem;line-height:1.6}.feature-tag{margin-top:auto;padding-top:1.5rem;color:var(--text-low)}.trail-line{stroke:var(--ember);stroke-width:1.5;fill:none;stroke-dasharray:5 4}.trail-node{fill:var(--ember)}.trail-grid{stroke:var(--contour);stroke-width:1}.trail-peer{fill:none;stroke:var(--ember-high);stroke-width:1.25;opacity:.5}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem;counter-reset:none;list-style:none}.step{border-top:1px solid var(--ridge);padding-top:1.5rem;position:relative}.step:before{content:"";position:absolute;top:-1px;left:0;width:32px;height:2px;background:var(--ember)}.step-index{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.12em;color:var(--ember-high);display:block;margin-bottom:1.25rem}.step h3{font-size:1.05rem;font-weight:500;margin-bottom:.6rem}.step p{color:var(--text-mid);font-size:.88rem;line-height:1.6}.use-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}.use-case{background:var(--basin-2);border:1px solid var(--ridge);padding:1.75rem;transition:background .2s,border-color .2s}.use-case:hover{background:var(--basin-3);border-color:var(--ridge-bright)}.use-case-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem}.use-case-icon{color:var(--text-mid)}.use-case-tag{color:var(--text-low);padding-top:.3rem}.use-case h3{font-size:1.02rem;font-weight:500;margin-bottom:.5rem}.use-case p{color:var(--text-mid);font-size:.88rem;line-height:1.6}.cta-section{text-align:center;padding:clamp(7rem,14vh,9rem) 2rem;position:relative;max-width:none;overflow:hidden}.cta-contours{position:absolute;inset:0;pointer-events:none;display:flex;justify-content:center;align-items:center}.cta-contours svg{width:1100px;min-width:700px;height:auto}.cta-inner{position:relative;z-index:2;max-width:720px;margin:0 auto}.cta-section h2{margin-bottom:1.5rem}.cta-section .cta-sub{color:var(--text-mid);font-size:1.1rem;max-width:500px;margin:0 auto 2.75rem}.modal-overlay{display:none;position:fixed;inset:0;z-index:400;background:#030506c7;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:2rem}.modal-overlay.active{display:flex}.modal{background:var(--basin-1);padding:3rem;max-width:480px;width:100%;text-align:center}@media(prefers-reduced-motion:no-preference){.modal{animation:modal-in .25s ease}}@keyframes modal-in{0%{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.modal-close{position:absolute;top:.75rem;right:.75rem;background:none;border:none;color:var(--text-low);cursor:pointer;font-size:1.5rem;line-height:1;padding:.25rem .5rem;transition:color .2s}.modal-close:hover{color:var(--text-hi)}.modal-icon{display:flex;justify-content:center;margin-bottom:1.5rem;color:var(--ember)}.modal h3{font-family:var(--font-display);font-size:1.5rem;font-weight:400;letter-spacing:-.01em;margin-bottom:.75rem}.modal p{color:var(--text-mid);margin-bottom:2rem;line-height:1.6}.modal-form{display:flex;gap:.5rem}.modal-form input{flex:1;padding:.75rem 1rem;border-radius:var(--radius-control);border:1px solid var(--ridge);background:var(--basin-3);color:var(--text-hi);font-family:var(--font-mono);font-size:.9rem;outline:none;transition:border-color .2s}.modal-form input:focus{border-color:var(--ember)}.modal-form input::placeholder{color:var(--text-low)}.modal-form button{padding:.75rem 1.5rem;border-radius:var(--radius-control);background:var(--ember);color:var(--basin-0);font-family:var(--font-body);font-weight:600;font-size:.95rem;border:none;cursor:pointer;white-space:nowrap;transition:background .2s}.modal-form button:hover{background:var(--ember-high)}.modal-success{display:none;color:var(--ok);font-family:var(--font-mono);font-weight:500;font-size:.9rem;letter-spacing:.02em}.modal-error{display:none;color:var(--danger);font-weight:500;font-size:.85rem;margin-top:.5rem}.modal-privacy-notice{color:var(--text-low);font-size:.75rem;margin-top:.75rem;line-height:1.5}.modal-privacy-notice a{color:var(--text-mid);text-decoration:underline}.modal-tracker-link{display:inline-block;margin-top:1rem;color:var(--text-low);font-size:.85rem;text-decoration:none;transition:color .2s}.modal-tracker-link:hover{color:var(--ember-high)}footer{border-top:1px solid var(--ridge);padding:4rem 2rem 2rem;color:var(--text-low);font-size:.85rem}.footer-inner{max-width:1200px;margin:0 auto}footer a{color:var(--text-mid);text-decoration:none;display:block;margin-bottom:.6rem;transition:color .2s}footer a:hover{color:var(--ember-high)}.footer-grid{display:grid;grid-template-columns:minmax(260px,1.2fr) 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem}.footer-col{display:flex;flex-direction:column}.footer-heading{color:var(--text-low);margin-bottom:1rem}.spec-block{padding:1.5rem;background:repeating-linear-gradient(0deg,var(--contour) 0 1px,transparent 1px 48px),var(--basin-1)}.spec-title{color:var(--ember-high);display:block;margin-bottom:1.25rem}.spec-block dl{margin:0}.spec-row{display:flex;gap:1rem;padding:.45rem 0;border-bottom:1px solid var(--ridge)}.spec-row:last-child{border-bottom:none}.spec-row dt{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-low);flex:0 0 88px;padding-top:.15rem}.spec-row dd{color:var(--text-mid);font-size:.85rem;margin:0}.footer-bottom{border-top:1px solid var(--ridge);padding-top:1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}.fade-in{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}.fade-in.visible{opacity:1;transform:translateY(0)}@media(prefers-reduced-motion:reduce){.fade-in{opacity:1;transform:none;transition:none}}.divider{height:1px;background:var(--ridge);max-width:1200px;margin:0 auto}.skip-link{position:absolute;left:-9999px;top:0;background:var(--ember);color:var(--basin-0);padding:.5rem 1rem;z-index:500;font-weight:600}.skip-link:focus{left:0}:focus-visible{outline:2px solid var(--ember);outline-offset:2px}.mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:.25rem}.mobile-menu svg{stroke:var(--text-mid);display:block}@media(max-width:768px){.nav-links{display:none}.mobile-menu{display:block}.nav-links.open{display:flex;flex-direction:column;align-items:flex-start;position:absolute;top:100%;left:0;right:0;background:var(--basin-1);border-bottom:1px solid var(--ridge);padding:1.5rem 2rem;gap:1.25rem}.hero{padding:7.5rem 1.5rem 0}.hero-marginalia{display:none}.hero-terrain{position:static;transform:none;width:100%;margin-top:2.5rem;-webkit-mask-image:none;mask-image:none}.stats{grid-template-columns:repeat(2,1fr)}.stat{border-left:none;border-top:1px solid var(--ridge)}.stat:nth-child(1),.stat:nth-child(2){border-top:none}.stat:nth-child(2n){border-left:1px solid var(--ridge)}.features-grid{grid-template-columns:1fr}.feature-lead,.feature-tall,.feature-third,.feature-wide{grid-column:span 1}.feature-lead{flex-direction:column}.feature-lead .feature-art{min-height:150px}.feature-wide{flex-direction:column;align-items:flex-start}.steps{grid-template-columns:1fr;gap:2rem}.use-cases{grid-template-columns:1fr}.modal{padding:2.25rem 1.5rem}.modal-form{flex-direction:column}}@media(max-width:480px){.hero{padding:6.5rem 1rem 0}h1{font-size:2.4rem}.hero-sub{font-size:1.02rem}.hero-actions{flex-direction:column;align-items:stretch;width:100%}.btn-primary,.btn-secondary{justify-content:center}.compat{flex-direction:column;gap:1rem;align-items:center}.stats{grid-template-columns:1fr}.stat{border-left:none!important;border-top:1px solid var(--ridge)}.stat:first-child{border-top:none}.cta-section{padding:5rem 1.5rem}.footer-bottom{justify-content:center;text-align:center}}@media(min-width:769px)and (max-width:1024px){.features-grid{grid-template-columns:repeat(2,1fr)}.feature-lead,.feature-wide{grid-column:span 2}.feature-tall,.feature-third{grid-column:span 1}.use-cases,.steps{grid-template-columns:repeat(2,1fr)}}
+:root{--basin-0: #060a0c;--basin-1: #0a1114;--basin-2: #0e171b;--basin-3: #142025;--basin-4: #1b2b31;--ridge: #22343b;--ridge-bright: #31474f;--contour: rgba(76, 110, 122, .16);--contour-hi: rgba(76, 110, 122, .3);--ember: #f97316;--ember-high: #fb923c;--ember-glow: rgba(249, 115, 22, .1);--text-hi: #e9eef0;--text-mid: #a3b2b9;--text-low: #76878f;--ok: #34d399;--danger: #f87171;--font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;--font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;--font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;--radius-control: 6px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--font-body);background:var(--basin-0);color:var(--text-hi);line-height:1.65;overflow-x:hidden}body:after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}.mono-label{font-family:var(--font-mono);font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase}.mono-meta{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:var(--text-low)}.frame{position:relative;border:1px solid var(--ridge);background:var(--basin-2)}.frame:before,.frame:after{content:"";position:absolute;width:14px;height:14px;pointer-events:none}.frame:before{top:-1px;left:-1px;border-top:2px solid var(--ridge-bright);border-left:2px solid var(--ridge-bright)}.frame:after{bottom:-1px;right:-1px;border-bottom:2px solid var(--ridge-bright);border-right:2px solid var(--ridge-bright)}nav{position:fixed;top:0;width:100%;z-index:100;padding:1rem 2rem;background:#060a0ce0;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--ridge);display:flex;justify-content:space-between;align-items:center}.logo{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-mono);font-size:.85rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text-hi);text-decoration:none}.logo svg{color:var(--ember)}.nav-links{display:flex;gap:2rem;align-items:center}.nav-links a{color:var(--text-mid);text-decoration:none;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}.nav-links a:hover{color:var(--text-hi)}.nav-cta{background:var(--ember)!important;color:var(--basin-0)!important;padding:.5rem 1.1rem;border-radius:var(--radius-control);font-weight:600!important;transition:background .2s!important}.nav-cta:hover{background:var(--ember-high)!important}.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 20rem;position:relative;overflow:hidden}.hero-light{position:absolute;top:-25%;left:50%;transform:translate(-50%);width:880px;height:880px;background:radial-gradient(circle,var(--ember-glow) 0%,transparent 62%);pointer-events:none}.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}.hero-marginalia{position:absolute;z-index:2;pointer-events:none}.hero-marginalia.top-left{top:5.5rem;left:2rem;text-align:left}.hero-marginalia.top-right{top:5.5rem;right:2rem;text-align:right}.badge{display:inline-flex;align-items:center;gap:.6rem;padding:.45rem 1.1rem;border:1px solid var(--ridge);border-radius:999px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mid);margin-bottom:2.5rem;background:var(--basin-1)}.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--ok)}@media(prefers-reduced-motion:no-preference){.badge-dot{animation:pulse-dot 2s ease-in-out infinite}}@keyframes pulse-dot{0%,to{opacity:1}50%{opacity:.35}}h1{font-family:var(--font-display);font-size:clamp(2.75rem,7vw,5.25rem);font-weight:300;letter-spacing:-.025em;line-height:1.04;margin-bottom:1.75rem;max-width:820px}h1 span{color:var(--ember-high)}.hero-sub{font-size:1.15rem;color:var(--text-mid);max-width:560px;margin-bottom:3rem;line-height:1.7}.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}.btn-primary{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.9rem;background:var(--ember);color:var(--basin-0);font-family:var(--font-body);font-size:.95rem;font-weight:600;letter-spacing:.01em;border-radius:var(--radius-control);text-decoration:none;border:none;cursor:pointer;transition:background .2s}.btn-primary:hover{background:var(--ember-high)}.btn-secondary{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.9rem;background:var(--basin-2);color:var(--text-hi);font-family:var(--font-body);font-size:.95rem;font-weight:500;border-radius:var(--radius-control);text-decoration:none;border:1px solid var(--ridge);transition:border-color .2s,background .2s}.btn-secondary:hover{border-color:var(--ridge-bright);background:var(--basin-3)}.btn-lg{font-size:1.05rem;padding:1rem 2.3rem}.compat{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}.compat-item{display:flex;align-items:center;gap:.65rem;color:var(--text-mid);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}.compat-item svg{color:var(--text-low);flex-shrink:0}.hero-compat{margin-top:3rem;position:relative;z-index:2}.hero-terrain{position:absolute;bottom:0;left:50%;transform:translate(-50%);width:min(1300px,100%);line-height:0;z-index:1;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 32%);mask-image:linear-gradient(to bottom,transparent,#000 32%)}.hero-terrain svg{width:100%;height:auto;display:block}.contour{stroke:var(--contour);fill:none;stroke-width:1}.contour-near{stroke:var(--contour-hi);fill:none;stroke-width:1}.link-line{stroke:var(--ridge-bright);stroke-width:1;stroke-dasharray:2 6}.node-core{fill:var(--ember)}.node-tick{stroke:var(--ember-high);stroke-width:1}.svg-meta{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;fill:var(--text-low)}.ring{fill:none;stroke:var(--ember);stroke-width:1.25;transform-box:fill-box;transform-origin:center}.ring-1{opacity:.45}.ring-2{opacity:.22}.ring-3{opacity:.1}@media(prefers-reduced-motion:no-preference)and (min-width:769px){.ring{animation:propagate 6.5s linear infinite}.ring-2{animation-delay:-2.2s}.ring-3{animation-delay:-4.4s}.node-b .ring{animation-duration:7.5s}.node-c .ring{animation-duration:8.5s}}@keyframes propagate{0%{transform:scale(.18);opacity:0}6%{opacity:.6}to{transform:scale(1.5);opacity:0}}section{padding:clamp(6rem,12vh,8rem) 2rem;max-width:1200px;margin:0 auto}.section-label{font-family:var(--font-mono);font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.16em;color:var(--ember-high);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}.section-label:before{content:"";width:24px;height:1px;background:var(--ember)}h2{font-family:var(--font-display);font-size:clamp(1.9rem,4vw,2.9rem);font-weight:300;letter-spacing:-.02em;line-height:1.12;margin-bottom:1.25rem}.section-desc{color:var(--text-mid);font-size:1.1rem;max-width:600px;margin-bottom:3.5rem}.stats-wrap{padding:0 2rem;max-width:1200px;margin:0 auto}.stats{display:grid;grid-template-columns:repeat(4,1fr);background:repeating-linear-gradient(0deg,var(--contour) 0 1px,transparent 1px 64px),repeating-linear-gradient(90deg,var(--contour) 0 1px,transparent 1px 64px),var(--basin-1)}.stats.frame{background-color:var(--basin-1)}.stat{padding:2.25rem 1.75rem 2rem;border-left:1px solid var(--ridge)}.stat:first-child{border-left:none}.stat-label{color:var(--text-low);margin-bottom:1rem;display:block}.stat-value{font-family:var(--font-mono);font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:400;letter-spacing:.02em;color:var(--ember-high);line-height:1.1;display:block;margin-bottom:.75rem;white-space:nowrap}.stat p{color:var(--text-mid);font-size:.88rem;line-height:1.55}.features-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.25rem}.feature-card{background:var(--basin-2);border:1px solid var(--ridge);padding:2rem;transition:background .2s,border-color .2s;display:flex;flex-direction:column}.feature-card:hover{background:var(--basin-3);border-color:var(--ridge-bright)}.feature-lead{grid-column:span 4;flex-direction:row;gap:2rem;align-items:stretch}.feature-lead .feature-copy{flex:1 1 55%;display:flex;flex-direction:column}.feature-lead .feature-art{flex:1 1 45%;min-height:180px;position:relative}.feature-lead .feature-art svg{position:absolute;inset:0;width:100%;height:100%}.feature-tall,.feature-third{grid-column:span 2}.feature-wide{grid-column:span 6;flex-direction:row;align-items:center;gap:2rem}.feature-wide p{max-width:720px}.feature-icon{width:44px;height:44px;border:1px solid var(--ridge-bright);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;color:var(--ember-high);flex-shrink:0}.feature-wide .feature-icon{margin-bottom:0}.feature-card h3{font-size:1.2rem;font-weight:500;letter-spacing:-.01em;margin-bottom:.6rem}.feature-card p{color:var(--text-mid);font-size:.9rem;line-height:1.6}.feature-tag{margin-top:auto;padding-top:1.5rem;color:var(--text-low)}.trail-line{stroke:var(--ember);stroke-width:1.5;fill:none;stroke-dasharray:5 4}.trail-node{fill:var(--ember)}.trail-grid{stroke:var(--contour);stroke-width:1}.trail-peer{fill:none;stroke:var(--ember-high);stroke-width:1.25;opacity:.5}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem;counter-reset:none;list-style:none}.step{border-top:1px solid var(--ridge);padding-top:1.5rem;position:relative}.step:before{content:"";position:absolute;top:-1px;left:0;width:32px;height:2px;background:var(--ember)}.step-index{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.12em;color:var(--ember-high);display:block;margin-bottom:1.25rem}.step h3{font-size:1.05rem;font-weight:500;margin-bottom:.6rem}.step p{color:var(--text-mid);font-size:.88rem;line-height:1.6}.use-cases{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}.use-case{background:var(--basin-2);border:1px solid var(--ridge);padding:1.75rem;transition:background .2s,border-color .2s}.use-case:hover{background:var(--basin-3);border-color:var(--ridge-bright)}.use-case-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem}.use-case-icon{color:var(--text-mid)}.use-case-tag{color:var(--text-low);padding-top:.3rem}.use-case h3{font-size:1.02rem;font-weight:500;margin-bottom:.5rem}.use-case p{color:var(--text-mid);font-size:.88rem;line-height:1.6}.cta-section{text-align:center;padding:clamp(7rem,14vh,9rem) 2rem;position:relative;max-width:none;overflow:hidden}.cta-contours{position:absolute;inset:0;pointer-events:none;display:flex;justify-content:center;align-items:center}.cta-contours svg{width:1100px;min-width:700px;height:auto}.cta-inner{position:relative;z-index:2;max-width:720px;margin:0 auto}.cta-section h2{margin-bottom:1.5rem}.cta-section .cta-sub{color:var(--text-mid);font-size:1.1rem;max-width:500px;margin:0 auto 2.75rem}.modal-overlay{display:none;position:fixed;inset:0;z-index:400;background:#030506c7;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:2rem}.modal-overlay.active{display:flex}.modal{background:var(--basin-1);padding:3rem;max-width:480px;width:100%;text-align:center}@media(prefers-reduced-motion:no-preference){.modal{animation:modal-in .25s ease}}@keyframes modal-in{0%{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.modal-close{position:absolute;top:.75rem;right:.75rem;background:none;border:none;color:var(--text-low);cursor:pointer;font-size:1.5rem;line-height:1;padding:.25rem .5rem;transition:color .2s}.modal-close:hover{color:var(--text-hi)}.modal-icon{display:flex;justify-content:center;margin-bottom:1.5rem;color:var(--ember)}.modal h3{font-family:var(--font-display);font-size:1.5rem;font-weight:400;letter-spacing:-.01em;margin-bottom:.75rem}.modal p{color:var(--text-mid);margin-bottom:2rem;line-height:1.6}.modal-form{display:flex;gap:.5rem}.modal-form input{flex:1;padding:.75rem 1rem;border-radius:var(--radius-control);border:1px solid var(--ridge);background:var(--basin-3);color:var(--text-hi);font-family:var(--font-mono);font-size:.9rem;outline:none;transition:border-color .2s}.modal-form input:focus{border-color:var(--ember)}.modal-form input::placeholder{color:var(--text-low)}.modal-form button{padding:.75rem 1.5rem;border-radius:var(--radius-control);background:var(--ember);color:var(--basin-0);font-family:var(--font-body);font-weight:600;font-size:.95rem;border:none;cursor:pointer;white-space:nowrap;transition:background .2s}.modal-form button:hover{background:var(--ember-high)}.modal-success{display:none;color:var(--ok);font-family:var(--font-mono);font-weight:500;font-size:.9rem;letter-spacing:.02em}.modal-error{display:none;color:var(--danger);font-weight:500;font-size:.85rem;margin-top:.5rem}.modal-privacy-notice{color:var(--text-low);font-size:.75rem;margin-top:.75rem;line-height:1.5}.modal-privacy-notice a{color:var(--text-mid);text-decoration:underline}footer{border-top:1px solid var(--ridge);padding:4rem 2rem 2rem;color:var(--text-low);font-size:.85rem}.footer-inner{max-width:1200px;margin:0 auto}footer a{color:var(--text-mid);text-decoration:none;display:block;margin-bottom:.6rem;transition:color .2s}footer a:hover{color:var(--ember-high)}.footer-grid{display:grid;grid-template-columns:minmax(260px,1.2fr) 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem}.footer-col{display:flex;flex-direction:column}.footer-heading{color:var(--text-low);margin-bottom:1rem}.spec-block{padding:1.5rem;background:repeating-linear-gradient(0deg,var(--contour) 0 1px,transparent 1px 48px),var(--basin-1)}.spec-title{color:var(--ember-high);display:block;margin-bottom:1.25rem}.spec-block dl{margin:0}.spec-row{display:flex;gap:1rem;padding:.45rem 0;border-bottom:1px solid var(--ridge)}.spec-row:last-child{border-bottom:none}.spec-row dt{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-low);flex:0 0 88px;padding-top:.15rem}.spec-row dd{color:var(--text-mid);font-size:.85rem;margin:0}.footer-bottom{border-top:1px solid var(--ridge);padding-top:1.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center}.fade-in{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}.fade-in.visible{opacity:1;transform:translateY(0)}@media(prefers-reduced-motion:reduce){.fade-in{opacity:1;transform:none;transition:none}}.divider{height:1px;background:var(--ridge);max-width:1200px;margin:0 auto}.safety-note{padding:1.1rem 1.4rem;border-left:2px solid var(--ember);background:var(--basin-1);color:var(--text-mid);font-size:.85rem;line-height:1.65;max-width:780px}.safety-note.in-features{margin-top:2.75rem}.footer-inner>.safety-note{margin-bottom:1.5rem}.devices{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}.device-card{background:var(--basin-2);border:1px solid var(--ridge);padding:1.75rem;transition:background .2s,border-color .2s;display:flex;flex-direction:column}.device-card:hover{background:var(--basin-3);border-color:var(--ridge-bright)}.device-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.25rem}.device-icon{color:var(--ember-high)}.device-price{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.06em;color:var(--ember-high);padding-top:.3rem}.device-card h3{font-size:1.02rem;font-weight:500;margin-bottom:.5rem}.device-card p{color:var(--text-mid);font-size:.88rem;line-height:1.6}.device-tag{margin-top:auto;padding-top:1.25rem;color:var(--text-low)}@media(max-width:768px){.devices{grid-template-columns:1fr}}@media(min-width:769px)and (max-width:1024px){.devices{grid-template-columns:repeat(3,1fr)}}.skip-link{position:absolute;left:-9999px;top:0;background:var(--ember);color:var(--basin-0);padding:.5rem 1rem;z-index:500;font-weight:600}.skip-link:focus{left:0}:focus-visible{outline:2px solid var(--ember);outline-offset:2px}.mobile-menu{display:none;background:none;border:none;cursor:pointer;padding:.25rem}.mobile-menu svg{stroke:var(--text-mid);display:block}@media(max-width:768px){.nav-links{display:none}.mobile-menu{display:block}.nav-links.open{display:flex;flex-direction:column;align-items:flex-start;position:absolute;top:100%;left:0;right:0;background:var(--basin-1);border-bottom:1px solid var(--ridge);padding:1.5rem 2rem;gap:1.25rem}.hero{padding:7.5rem 1.5rem 0}.hero-marginalia{display:none}.hero-terrain{position:static;transform:none;width:100%;margin-top:2.5rem;-webkit-mask-image:none;mask-image:none}.stats{grid-template-columns:repeat(2,1fr)}.stat{border-left:none;border-top:1px solid var(--ridge)}.stat:nth-child(1),.stat:nth-child(2){border-top:none}.stat:nth-child(2n){border-left:1px solid var(--ridge)}.features-grid{grid-template-columns:1fr}.feature-lead,.feature-tall,.feature-third,.feature-wide{grid-column:span 1}.feature-lead{flex-direction:column}.feature-lead .feature-art{min-height:150px}.feature-wide{flex-direction:column;align-items:flex-start}.steps{grid-template-columns:1fr;gap:2rem}.use-cases{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.modal{padding:2.25rem 1.5rem}.modal-form{flex-direction:column}}@media(max-width:480px){.hero{padding:6.5rem 1rem 0}h1{font-size:2.4rem}.hero-sub{font-size:1.02rem}.hero-actions{flex-direction:column;align-items:stretch;width:100%}.btn-primary,.btn-secondary{justify-content:center}.compat{flex-direction:column;gap:1rem;align-items:center}.stats{grid-template-columns:1fr}.stat{border-left:none!important;border-top:1px solid var(--ridge)}.stat:first-child{border-top:none}.cta-section{padding:5rem 1.5rem}.footer-bottom{justify-content:center;text-align:center}}@media(min-width:769px)and (max-width:1024px){.features-grid{grid-template-columns:repeat(2,1fr)}.feature-lead,.feature-wide{grid-column:span 2}.feature-tall,.feature-third{grid-column:span 1}.use-cases,.steps{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -54,7 +96,7 @@
     <div class="nav-links" id="navLinks">
         <a href="#features">Features</a>
         <a href="#how-it-works">How It Works</a>
-        <a href="#use-cases">Use Cases</a>
+        <a href="#devices">Devices</a>
         <a href="faq.html">FAQ</a>
         <a href="#get-started" class="nav-cta">Get Started</a>
     </div>
@@ -78,8 +120,8 @@
         <div class="badge"><span class="badge-dot"></span> Coming soon to iOS</div>
         <h1>Your Group.<br><span>Always Connected.</span></h1>
         <p class="hero-sub">
-            Smoke Signal pairs with compatible LoRa radios to give your group live location sharing,
-            encrypted messaging, and emergency SOS — even where there's zero cell service.
+            See your whole group on a live map and message everyone, anywhere — even with
+            zero cell service. No subscription. No monthly fees.
         </p>
         <div class="hero-actions">
             <button type="button" class="btn-primary" onclick="openModal()">
@@ -95,7 +137,7 @@
             </div>
             <div class="compat-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><line x1="12" y1="21" x2="12" y2="11"/><circle cx="12" cy="9" r="2"/><path d="M7.8 4.8a6 6 0 0 0 0 8.4"/><path d="M16.2 4.8a6 6 0 0 1 0 8.4"/><path d="M4.9 2a10 10 0 0 0 0 14"/><path d="M19.1 2a10 10 0 0 1 0 14"/></svg>
-                Works with compatible LoRa radios
+                No monthly fees, ever
             </div>
         </div>
     </div>
@@ -134,7 +176,7 @@
                 <path class="contour" d="M-76 0 C -76 -38 -38 -59 0 -57 C 43 -55 76 -29 73 5 C 70 40 35 59 -5 57 C -45 55 -76 35 -76 0 Z"/>
             </g>
 
-            <!-- mesh links between nodes -->
+            <!-- links between nodes -->
             <line class="link-line" x1="295" y1="300" x2="810" y2="218"/>
             <line class="link-line" x1="810" y1="218" x2="1052" y2="352"/>
 
@@ -192,9 +234,9 @@
             <p>Instant location sharing to your group.</p>
         </div>
         <div class="stat">
-            <span class="stat-label mono-label">SOS trigger</span>
+            <span class="stat-label mono-label">Group alert</span>
             <span class="stat-value">3 PRESSES</span>
-            <p>Emergency SOS broadcast to all peers.</p>
+            <p>Ping your whole group with your location.</p>
         </div>
         <div class="stat">
             <span class="stat-label mono-label">Positioning</span>
@@ -204,11 +246,20 @@
     </div>
 </div>
 
+<!-- What is Smoke Signal? -->
+<section id="what-is-it">
+    <p class="section-label fade-in">What Is Smoke Signal?</p>
+    <h2 class="fade-in">Your Whole Group, Connected Off the Grid</h2>
+    <p class="section-desc fade-in">Smoke Signal is an off-grid group-communication system — a small mesh-radio device paired with an iPhone app — that lets your group text each other and see everyone on a live map with no cell service, no internet, and no monthly fee.</p>
+    <p class="section-desc fade-in">It's built for outdoor groups who aren't technical — hiking, hunting, backcountry skiing, paddling, overlanding, and festivals. Each person carries a device, and the devices relay for one another, so messages and locations reach the whole group even when you're spread out. It's a one-time purchase: no subscription and no per-message fees.</p>
+    <p class="section-desc fade-in">Smoke Signal is not a satellite messenger and does not contact emergency services (911). Its Group Alert feature reaches only group members within radio range. For life-threatening emergencies, carry a satellite communicator or ensure cell coverage.</p>
+</section>
+
 <!-- Features -->
 <section id="features">
     <p class="section-label fade-in">Features</p>
     <h2 class="fade-in">Everything You Need<br>Past the Last Cell Tower</h2>
-    <p class="section-desc fade-in">Smoke Signal replaces the gear bag full of radios, paper maps, and hope. One app, one tracker, total group awareness.</p>
+    <p class="section-desc fade-in">Smoke Signal replaces the gear bag full of radios, paper maps, and hope. One app, one device, total group awareness.</p>
 
     <div class="features-grid">
         <div class="feature-card feature-lead frame fade-in">
@@ -241,15 +292,15 @@
             <div class="feature-icon" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/><line x1="12" y1="14.5" x2="12" y2="16.5"/></svg>
             </div>
-            <h3>Encrypted P2P Chat</h3>
-            <p>End-to-end encrypted messaging over peer-to-peer connections. No servers, no cloud, no middlemen. Messages are location-tagged so your group always has context.</p>
+            <h3>Private Group Chat</h3>
+            <p>Private by design — your messages and location stay on your devices, never on a server or the cloud. Messages are location-tagged so your group always has context.</p>
         </div>
         <div class="feature-card feature-third fade-in">
             <div class="feature-icon" aria-hidden="true">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M7.8 7.8a6 6 0 0 0 0 8.4"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4"/><path d="M4.9 4.9a10 10 0 0 0 0 14.2"/><path d="M19.1 4.9a10 10 0 0 1 0 14.2"/></svg>
             </div>
-            <h3>Emergency SOS</h3>
-            <p>Triple-press the tracker button to instantly broadcast an emergency alert with your exact GPS coordinates to every connected group member.</p>
+            <h3>Group Alert</h3>
+            <p>Press the button to instantly ping your whole group with your exact location, so the people closest to you know right where you are.</p>
         </div>
         <div class="feature-card feature-third fade-in">
             <div class="feature-icon" aria-hidden="true">
@@ -275,6 +326,7 @@
             </div>
         </div>
     </div>
+    <p class="safety-note in-features fade-in">Smoke Signal is not a satellite messenger and does not contact emergency services (911). Group Alert reaches only group members within radio range. For life-threatening emergencies, carry a satellite communicator or ensure cell coverage.</p>
 </section>
 
 <div class="divider"></div>
@@ -283,18 +335,18 @@
 <section id="how-it-works">
     <p class="section-label fade-in">How It Works</p>
     <h2 class="fade-in">Up and Running in Minutes</h2>
-    <p class="section-desc fade-in">No accounts, no subscriptions, no complicated setup. Pair your tracker and go.</p>
+    <p class="section-desc fade-in">No accounts, no subscriptions, no complicated setup. Power on your device and go.</p>
 
     <ol class="steps">
         <li class="step fade-in">
             <span class="step-index" aria-hidden="true">01 /</span>
-            <h3>Grab a LoRa Radio</h3>
-            <p>Pick up any compatible LoRa radio — from pocket-sized GPS trackers like the SenseCAP T1000-E to full-featured handhelds from Heltec, RAK, and others.</p>
+            <h3>Get Your Smoke Signal Device</h3>
+            <p>Your Tag or Pocket arrives pre-configured for your group. Nothing to source, nothing to set up — it works the moment it ships.</p>
         </li>
         <li class="step fade-in">
             <span class="step-index" aria-hidden="true">02 /</span>
             <h3>Pair with Smoke Signal</h3>
-            <p>Open the app, turn on your tracker, and they connect automatically over Bluetooth. No accounts to create, no cloud to configure.</p>
+            <p>Open the app, turn on your device, and they connect automatically over Bluetooth. No accounts to create, no cloud to configure.</p>
         </li>
         <li class="step fade-in">
             <span class="step-index" aria-hidden="true">03 /</span>
@@ -304,9 +356,54 @@
         <li class="step fade-in">
             <span class="step-index" aria-hidden="true">04 /</span>
             <h3>Go Explore</h3>
-            <p>Hit the trail. Your group stays connected with live locations, offline chat, and emergency SOS — no cell towers required.</p>
+            <p>Hit the trail. Your group stays connected with live locations, offline messaging, and Group Alert — no cell towers required.</p>
         </li>
     </ol>
+</section>
+
+<div class="divider"></div>
+
+<!-- Devices -->
+<section id="devices">
+    <p class="section-label fade-in">The Hardware</p>
+    <h2 class="fade-in">No Monthly Fees. Ever.</h2>
+    <p class="section-desc fade-in">Satellite messengers cost hundreds up front plus a monthly plan. Smoke Signal is a one-time purchase — buy your devices once and your whole group stays connected, with no subscription. Coming soon — join the waitlist.</p>
+
+    <div class="devices">
+        <div class="device-card fade-in">
+            <div class="device-head">
+                <span class="device-icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2.5"/><circle cx="12" cy="9" r="2"/><line x1="12" y1="14" x2="12" y2="17"/></svg>
+                </span>
+                <span class="device-price">$99</span>
+            </div>
+            <h3>Smoke Signal Tag</h3>
+            <p>Compact and pocketable. Clip it to a pack strap and your location is on the group map all day.</p>
+            <span class="device-tag mono-meta" aria-hidden="true">COMING SOON</span>
+        </div>
+        <div class="device-card fade-in">
+            <div class="device-head">
+                <span class="device-icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2"/><rect x="8.5" y="5" width="7" height="9"/><line x1="10.5" y1="18" x2="13.5" y2="18"/></svg>
+                </span>
+                <span class="device-price">$199</span>
+            </div>
+            <h3>Smoke Signal Pocket</h3>
+            <p>A built-in screen and longer range. Read the map, send messages, and trigger a Group Alert without your phone.</p>
+            <span class="device-tag mono-meta" aria-hidden="true">COMING SOON</span>
+        </div>
+        <div class="device-card fade-in">
+            <div class="device-head">
+                <span class="device-icon" aria-hidden="true">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><rect x="3" y="8" width="9" height="13" rx="1.5"/><path d="M8 8V5a1.5 1.5 0 0 1 1.5-1.5H19A1.5 1.5 0 0 1 20.5 5v11A1.5 1.5 0 0 1 19 17.5h-3"/></svg>
+                </span>
+                <span class="device-price">2&#8209;PACK / 4&#8209;PACK</span>
+            </div>
+            <h3>Group Kits</h3>
+            <p>Outfit the whole crew at once. Two-pack and four-pack kits, pre-paired and ready to hand out at the trailhead.</p>
+            <span class="device-tag mono-meta" aria-hidden="true">COMING SOON</span>
+        </div>
+    </div>
 </section>
 
 <div class="divider"></div>
@@ -336,7 +433,7 @@
                 <span class="use-case-tag mono-meta" aria-hidden="true">COULOIR</span>
             </div>
             <h3>Backcountry Skiing</h3>
-            <p>Track your group across runs and bowls. Record lines for later. SOS if something goes wrong on a steep face.</p>
+            <p>Track your group across runs and bowls. Record lines for later. Ping everyone instantly if you get separated between laps.</p>
         </div>
         <div class="use-case fade-in">
             <div class="use-case-head">
@@ -361,22 +458,12 @@
         <div class="use-case fade-in">
             <div class="use-case-head">
                 <span class="use-case-icon" aria-hidden="true">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><circle cx="12" cy="12" r="7"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M4 21 V11 L12 5 L20 11 V21"/><line x1="9" y1="21" x2="9" y2="15"/><line x1="15" y1="21" x2="15" y2="15"/><line x1="12" y1="2" x2="12" y2="5"/></svg>
                 </span>
-                <span class="use-case-tag mono-meta" aria-hidden="true">GRID SEARCH</span>
+                <span class="use-case-tag mono-meta" aria-hidden="true">CROWDS</span>
             </div>
-            <h3>Search &amp; Rescue</h3>
-            <p>Coordinate field teams with real-time positions and messaging. SOS alerts with GPS ensure rapid response when seconds matter.</p>
-        </div>
-        <div class="use-case fade-in">
-            <div class="use-case-head">
-                <span class="use-case-icon" aria-hidden="true">
-                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><line x1="12" y1="21" x2="12" y2="9"/><path d="M8 21 L12 13 L16 21"/><circle cx="12" cy="7" r="2"/><path d="M8.5 3.5a5 5 0 0 0 0 7"/><path d="M15.5 3.5a5 5 0 0 1 0 7"/></svg>
-                </span>
-                <span class="use-case-tag mono-meta" aria-hidden="true">PERIMETER</span>
-            </div>
-            <h3>Remote Work Sites</h3>
-            <p>Track crew positions across large job sites with no infrastructure. Offline comms keep operations running without cell towers.</p>
+            <h3>Festivals &amp; Events</h3>
+            <p>Find your crew in a sea of people when the cell network is jammed. Drop a pin at camp and regroup without a signal.</p>
         </div>
     </div>
 </section>
@@ -399,14 +486,14 @@
     <div class="cta-inner">
         <p class="section-label fade-in">Get Started</p>
         <h2 class="fade-in">Never Lose Your Group<br>in the Backcountry Again</h2>
-        <p class="cta-sub fade-in">Smoke Signal is coming to the App Store soon. Grab a LoRa radio and be ready on day one.</p>
+        <p class="cta-sub fade-in">Smoke Signal is coming soon. Join the waitlist and be first to get your whole group connected.</p>
         <div class="hero-actions fade-in">
             <button type="button" class="btn-primary btn-lg" onclick="openModal()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                Notify Me at Launch
+                Join the Waitlist
             </button>
-            <a href="https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html" class="btn-secondary btn-lg" target="_blank" rel="noopener noreferrer">
-                Get the Tracker
+            <a href="#devices" class="btn-secondary btn-lg">
+                See the Devices
             </a>
         </div>
     </div>
@@ -425,8 +512,8 @@
                 <circle cx="12" cy="13" r="10.5" stroke="currentColor" stroke-width="1.25" opacity="0.25"/>
             </svg>
         </div>
-        <h3 id="modalTitle">Coming Soon to the App Store</h3>
-        <p>Smoke Signal is in active development. Drop your email and we'll let you know the moment it's available to download.</p>
+        <h3 id="modalTitle">Join the Waitlist</h3>
+        <p>Smoke Signal is in active development. Drop your email and we'll let you know the moment the device and app are available.</p>
         <form class="modal-form" id="notifyForm" onsubmit="handleNotifySubmit(event)">
             <input type="email" id="notifyEmail" placeholder="you@example.com" required aria-label="Email address" autocomplete="email">
             <button type="submit" id="notifySubmitBtn">Notify Me</button>
@@ -434,9 +521,6 @@
         <p class="modal-error" id="notifyError" role="alert"></p>
         <p class="modal-success" id="notifySuccess" role="status">You're on the list! We'll be in touch.</p>
         <p class="modal-privacy-notice">We'll only email you about the Smoke Signal launch. No spam, ever. <a href="privacy.html">Privacy Policy</a></p>
-        <a href="https://www.seeedstudio.com/SenseCAP-Card-Tracker-T1000-E-for-Meshtastic-p-5913.html" class="modal-tracker-link" target="_blank" rel="noopener noreferrer">
-            In the meantime, grab the SenseCAP T1000-E tracker &rarr;
-        </a>
     </div>
 </div>
 
@@ -457,8 +541,8 @@
                             <dd>iPhone or iPad</dd>
                         </div>
                         <div class="spec-row">
-                            <dt>Radio</dt>
-                            <dd>Compatible LoRa radio</dd>
+                            <dt>Hardware</dt>
+                            <dd>Smoke Signal Tag or Pocket</dd>
                         </div>
                     </dl>
                 </div>
@@ -475,10 +559,11 @@
                 <a href="privacy.html">Privacy Policy</a>
             </div>
             <div class="footer-col">
-                <p class="footer-heading mono-label">Connect</p>
-                <a href="https://github.com/cameronwc" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <p class="footer-heading mono-label">Stay in the Loop</p>
+                <a href="#get-started">Join the Waitlist</a>
             </div>
         </div>
+        <p class="safety-note">Smoke Signal is not a satellite messenger and does not contact emergency services (911). Group Alert reaches only group members within radio range. For life-threatening emergencies, carry a satellite communicator or ensure cell coverage.</p>
         <div class="footer-bottom">
             <p>Smoke Signal &copy; 2026 &middot; Built for the backcountry.</p>
             <p class="mono-meta">46.8520, -121.7260 &middot; GRID 10T</p>
