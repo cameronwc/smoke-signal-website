@@ -1,0 +1,23 @@
+# Smoke Signal
+
+> Smoke Signal is an off-grid group-communication system — a small LoRa mesh device paired with an iPhone app — that lets an outdoor group text each other and see everyone on a live map with no cell service, no internet, and no monthly fee.
+
+## What it is
+
+- A product, not just an app: a branded Smoke Signal device plus the iOS app, sold together.
+- Built for non-technical outdoor groups: hiking, hunting, backcountry skiing, paddling, overlanding, and festivals.
+- Each person carries a device; the devices relay for one another, so messages and locations reach the whole group even beyond direct range.
+
+## Key facts
+
+- **No subscription, no monthly fees.** One-time purchase. Unlike satellite messengers (e.g. Garmin inReach), there is no per-message charge and no service plan.
+- **Works with zero cell service or wifi.** Messaging, the live group map, and offline maps all work fully off the grid.
+- **Private by design.** Messages and locations stay on your devices, encrypted; there are no accounts, no cloud, and no tracking.
+- **Not a safety or emergency device.** Smoke Signal is not a satellite messenger and does not contact emergency services (911). Its Group Alert feature reaches only group members within radio range. For life-threatening emergencies, carry a satellite communicator or ensure cell coverage.
+- **Status: pre-launch.** Coming soon for iOS — join the waitlist to be notified. Planned devices: Smoke Signal Tag ($99) and Smoke Signal Pocket ($199), plus group kits.
+
+## Pages
+
+- [Home](https://usesmokesignal.com/): what it is, features, how it works, devices, use cases.
+- [FAQ](https://usesmokesignal.com/faq.html): how it works without cell service, what you need, range, privacy, pricing, and how it differs from a satellite messenger.
+- [Privacy Policy](https://usesmokesignal.com/privacy.html): on-device data, no accounts, no cloud.
