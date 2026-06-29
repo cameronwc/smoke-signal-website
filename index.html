@@ -38,24 +38,24 @@
                 "name": "Smoke Signal",
                 "url": "https://usesmokesignal.com/",
                 "logo": "https://usesmokesignal.com/logo.png",
-                "description": "Smoke Signal makes an off-grid group-communication system — a LoRa mesh device paired with an iPhone app — that lets outdoor groups message each other and share a live map with no cell service and no monthly fee."
+                "description": "Smoke Signal makes an off-grid group-communication system — a LoRa mesh device paired with an iOS and Android app — that lets outdoor groups message each other and share a live map with no cell service and no monthly fee."
             },
             {
                 "@type": "WebSite",
                 "@id": "https://usesmokesignal.com/#website",
                 "name": "Smoke Signal",
                 "url": "https://usesmokesignal.com/",
-                "description": "Off-grid group communication for outdoor groups — a device and an iPhone app. See your whole group on a live map and message them anywhere with no cell service and no monthly fees.",
+                "description": "Off-grid group communication for outdoor groups — a device and an app for iOS and Android. See your whole group on a live map and message them anywhere with no cell service and no monthly fees.",
                 "publisher": { "@id": "https://usesmokesignal.com/#organization" }
             },
             {
                 "@type": "SoftwareApplication",
                 "@id": "https://usesmokesignal.com/#app",
                 "name": "Smoke Signal",
-                "operatingSystem": "iOS",
+                "operatingSystem": "iOS, Android",
                 "applicationCategory": "TravelApplication",
                 "url": "https://usesmokesignal.com/",
-                "description": "The Smoke Signal iPhone app pairs with the Smoke Signal device to show your whole group on a live map and send messages off the grid — no cell service, no accounts, and no monthly fees. It is not a satellite messenger and does not contact emergency services.",
+                "description": "The Smoke Signal app (iOS and Android) pairs with the Smoke Signal device to show your whole group on a live map and send messages off the grid — no cell service, no accounts, and no monthly fees. It is not a satellite messenger and does not contact emergency services.",
                 "publisher": { "@id": "https://usesmokesignal.com/#organization" }
             },
             {
@@ -65,7 +65,7 @@
                 "category": "Off-grid communication device",
                 "image": "https://usesmokesignal.com/og-image.png",
                 "url": "https://usesmokesignal.com/#devices",
-                "description": "Compact, pocketable off-grid mesh device that keeps you on your group's live map and lets you message them with no cell service. Pairs automatically with the Smoke Signal iPhone app. Announced at $99; pre-launch — join the waitlist. Not a satellite messenger; does not contact emergency services."
+                "description": "Compact, pocketable off-grid mesh device that keeps you on your group's live map and lets you message them with no cell service. Pairs automatically with the Smoke Signal app for iOS and Android. Announced at $99; pre-launch — join the waitlist. Not a satellite messenger; does not contact emergency services."
             },
             {
                 "@type": "Product",
@@ -74,7 +74,7 @@
                 "category": "Off-grid communication device",
                 "image": "https://usesmokesignal.com/og-image.png",
                 "url": "https://usesmokesignal.com/#devices",
-                "description": "Off-grid mesh device with a built-in screen and longer range. Read the live group map, send messages, and trigger a Group Alert without your phone. Pairs with the Smoke Signal iPhone app. Announced at $199; pre-launch — join the waitlist. Not a satellite messenger; does not contact emergency services."
+                "description": "Off-grid mesh device with a built-in screen and longer range. Read the live group map, send messages, and trigger a Group Alert without your phone. Pairs with the Smoke Signal app for iOS and Android. Announced at $199; pre-launch — join the waitlist. Not a satellite messenger; does not contact emergency services."
             }
         ]
     }
@@ -214,7 +214,6 @@ nav.scrolled{background:rgba(6,10,12,.85);backdrop-filter:blur(20px);-webkit-bac
 .live-dot{width:6px;height:6px;border-radius:50%;background:var(--ok)}
 h1{font-family:var(--font);font-size:clamp(3.25rem,9vw,6rem);font-weight:800;letter-spacing:-.035em;line-height:.98;margin-bottom:1.9rem}
 h1 .accent{color:var(--ember);text-shadow:0 0 44px rgba(232,87,26,.4)}
-.glitch{display:inline-block}
 .hero-sub{font-size:1.2rem;color:var(--text-mid);max-width:600px;margin-bottom:2.5rem;line-height:1.65}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
 .pulse{animation:cta-pulse 2.4s ease-in-out infinite}
@@ -477,10 +476,10 @@ footer a:hover{color:var(--ember-bright)}
     <div class="hero-veil" aria-hidden="true"></div>
 
     <div class="hero-content">
-        <div class="hero-badge"><span class="live-dot"></span> Coming soon to iOS</div>
+        <div class="hero-badge"><span class="live-dot"></span> Coming soon to iOS &amp; Android</div>
         <h1>
-            <span class="glitch" data-text="Your Group.">Your Group.</span><br>
-            <span class="glitch accent" data-text="Always Connected.">Always Connected.</span>
+            Your Group.<br>
+            <span class="accent">Always Connected.</span>
         </h1>
         <p class="hero-sub">Encrypted mesh communication for the backcountry. No cell towers. No cloud. No compromises.</p>
         <div class="hero-actions">
@@ -493,7 +492,7 @@ footer a:hover{color:var(--ember-bright)}
         <div class="badge-row">
             <span class="pill">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></svg>
-                iPhone &amp; iPad
+                iOS &amp; Android
             </span>
             <span class="pill">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><line x1="12" y1="21" x2="12" y2="11"/><circle cx="12" cy="9" r="1.6"/><path d="M7.8 4.8a6 6 0 0 0 0 8.4"/><path d="M16.2 4.8a6 6 0 0 1 0 8.4"/></svg>
@@ -926,8 +925,9 @@ footer a:hover{color:var(--ember-bright)}
                 <div class="spec-block frame">
                     <span class="spec-title mono-label">Requirements</span>
                     <dl>
-                        <div class="spec-row"><dt>System</dt><dd>iOS 18.2 or later</dd></div>
-                        <div class="spec-row"><dt>Device</dt><dd>iPhone or iPad</dd></div>
+                        <div class="spec-row"><dt>iOS</dt><dd>iOS 18.2 or later</dd></div>
+                        <div class="spec-row"><dt>Android</dt><dd>Coming soon</dd></div>
+                        <div class="spec-row"><dt>Device</dt><dd>iPhone, iPad, or Android</dd></div>
                         <div class="spec-row"><dt>Hardware</dt><dd>Smoke Signal Tag or Pocket</dd></div>
                     </dl>
                 </div>
@@ -1018,28 +1018,6 @@ footer a:hover{color:var(--ember-bright)}
                 orb.style.transform = 'translateY(' + (y * (0.6 + i * 0.2)) + 'px)';
             });
         }, { passive: true });
-    }
-
-    /* ---- Glitch text resolve on load ---- */
-    if (!reduceMotion) {
-        var glyphs = '!<>-_\\/[]{}=+*^?#01';
-        document.querySelectorAll('.glitch').forEach(function (el, idx) {
-            var target = el.getAttribute('data-text');
-            var frame = 0;
-            var totalFrames = 26 + idx * 6;
-            var interval = setInterval(function () {
-                var out = '';
-                for (var i = 0; i < target.length; i++) {
-                    if (target[i] === ' ') { out += ' '; continue; }
-                    var settle = (i / target.length) * totalFrames;
-                    if (frame >= settle) out += target[i];
-                    else out += glyphs[Math.floor(Math.random() * glyphs.length)];
-                }
-                el.textContent = out;
-                frame++;
-                if (frame > totalFrames) { clearInterval(interval); el.textContent = target; }
-            }, 38);
-        });
     }
 
     /* ---- Counter animations ---- */
@@ -1269,24 +1247,6 @@ footer a:hover{color:var(--ember-bright)}
         '    float fog=1.0-exp(-hitT*0.05); col=mix(col,skyCol(rd),fog);',
         '  } else { col=skyCol(rd); }',
         '  col*=mix(0.34,1.0,smoothstep(-0.05,0.5,vUv.y));',
-        // single transmitter beacon anchored to a world point on the ridge (rides with the terrain),
-        // recycling to the next peak as the camera slowly approaches it
-        '  float P=18.0, FARZ=22.0;',
-        '  float cyc=floor(ro.z/P); float bph=ro.z-cyc*P; float t01=bph/P;',
-        '  float bx=(hash(vec2(cyc,3.1))-0.5)*7.0; float bz=ro.z+(FARZ-bph);',
-        '  float by=terrain(vec2(bx,bz))+0.5;',
-        '  vec3 BD=vec3(bx,by,bz)-ro; float bc=dot(BD,fw);',
-        '  vec2 buv=vec2(1.7*dot(BD,rt)/max(bc,0.001),1.7*dot(BD,up)/max(bc,0.001));',
-        '  float bdist=length(BD); float persp=clamp(8.0/bdist,0.15,1.4);',
-        '  float balpha=step(0.3,bc)*smoothstep(0.0,0.12,t01)*smoothstep(1.0,0.85,t01)*smoothstep(0.66,0.40,vUv.y);',
-        '  float bd=length(uv-buv);',
-        '  float sz=0.004*persp+0.0016; float core=sz*sz/(bd*bd+sz*sz);',
-        '  float halo=exp(-bd/(0.06*persp+0.02))*0.4;',
-        '  float maxR=0.42*persp+0.05; float rings=0.0;',
-        '  for(int r=0;r<4;r++){ float rp=mod(iTime*0.35+float(r)*0.25,1.0); float rad=rp*maxR;',
-        '    rings+=smoothstep(0.010,0.0,abs(bd-rad))*(1.0-rp)*(1.0-rp); }',
-        '  col+=vec3(1.0,0.86,0.62)*core*balpha*1.1;',
-        '  col+=vec3(1.0,0.47,0.18)*(rings*0.8+halo*0.22)*balpha;',
         '  col=pow(clamp(col,0.0,1.0),vec3(0.85));',
         '  gl_FragColor=vec4(col,1.0); }'
     ].join('\n');
